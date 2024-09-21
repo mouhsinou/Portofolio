@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio de Moussinou MAMA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+            --card-bg: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            color: #ecf0f1;
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            object-fit: cover;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .section {
+            background-color: var(--card-bg);
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .contact-info li {
+            flex-basis: calc(50% - 10px);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info li i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        .skills-list, .languages-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .skills-list li, .languages-list li {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .skills-list li:hover, .languages-list li:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .formation-item, .education-item, .project-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .formation-item:hover, .education-item:hover, .project-item:hover {
+            background-color: #e9e9e9;
+        }
+
+        .formation-item h3, .education-item h3, .project-item h3 {
+            color: var(--primary-color);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .contact-info li {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="msn.png" alt="Moussinou MAMA" class="profile-pic">
+            <h1>Moussinou MAMA</h1>
+            <p>Développeur Full Stack | Ingenieur Reseau | Data Scientist | Spécialiste en IA et Machine Learning</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <ul class="contact-info">
+                <li><i class="fas fa-envelope"></i> moussinoumama52@gmail.com</li>
+                <li><i class="fas fa-phone"></i> +22995231680 / +22962241874</li>
+                <li><i class="fas fa-map-marker-alt"></i> Zogbadjè / Abomey Calavi / Bénin</li>
+                <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/moussinou-mama-8b6270284">LinkedIn</a></li>
+                <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/22995231680">WhatsApp</a></li>
+            </ul>
+        </section>
+
+        <section id="objectif" class="section">
+            <h2>Objectif professionnel</h2>
+            <p>Développeur passionné et innovant, je cherche à repousser les limites de la technologie en combinant mon expertise en mathématiques, informatique et intelligence artificielle. Mon objectif est de concevoir des solutions technologiques avancées qui répondent aux défis complexes de notre ère numérique. Je vise à contribuer à des projets d'envergure en IA et machine learning, tout en continuant à développer mes compétences dans les domaines émergents de l'informatique.</p>
+        </section>
+
+        <section id="competences" class="section">
+            <h2>Compétences</h2>
+            <ul class="skills-list">
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>Développement Web (HTML, CSS, Vuejs, React)</li>
+                <li>Développement Mobile (Flutter)</li>
+                <li>Base de données (SQL, NoSQL)</li>
+                <li>DevOps (Docker, Kubernetes)</li>
+                <li>Cloud Computing (AWS, GCP)</li>
+                <li>Traitement de signal et d'image avec python</li>
+                <li>Analyse de données</li>
+                <li>Machine Learning</li>
+                <li>Algorithmes et structures de données</li>
+                <li>Git et contrôle de version</li>
+            </ul>
+        </section>
+
+        <section id="formation" class="section">
+            <h2>Formation</h2>
+            <div class="formation-item">
+                <h3>BENIN EXCELLENCE (EEIA 2023)</h3>
+                <p>Formation de base en Intelligence Artificielle</p>
+                <ul>
+                    <li>Programmation avancée en Python</li>
+                    <li>Fondamentaux du Machine Learning</li>
+                    <li>Introduction à la Robotique</li>
+                    <li>Projets pratiques en IA</li>
+                </ul>
+                <p><em>17/07/2023 - 12/08/2023</em></p>
+            </div>
+            <div class="formation-item">
+                <h3>DATA AFRIQUE HUB</h3>
+                <p>Formation complète en Data Science</p>
+                <ul>
+                    <li>Data Engineering: ETL, pipelines de données</li>
+                    <li>Analyse de données avancée</li>
+                    <li>Machine Learning appliqué</li>
+                    <li>Déploiement d'applications data-driven</li>
+                </ul>
+                <p><em>04/2024 - 07/2024</em></p>
+            </div>
+            <div class="formation-item">
+                <h3>AFRICA TECHUP TOURS</h3>
+                <p> Formation en DATA / IA avec Spécialisation en DATA INFRASTRUCTURE, DevOps / MLOps et Cloud Computing</p>
+                <ul>
+                    <li>Infrastructure as Code</li>
+                    <li>Conteneurisation avec Docker</li>
+                    <li>Orchestration avec Kubernetes</li>
+                    <li>Cloud platforms (AWS, GCP, Azure)</li>
+                    <li>Deploiement des modèles de ML </li>
+                    <li>Monitoring avec Grafana</li>
+                </ul>
+                <p><em>04/2024 - 09/2024</em></p>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <h2>Parcours académique</h2>
+            <div class="education-item">
+                <h3>IFRI-UAC</h3>
+                <p>Master en Systèmes d'Information et Réseaux Informatique</p>
+                <p><em>En cours</em></p>
+            </div>
+            <div class="education-item">
+                <h3>UNSTIM-ABOMEY (FAST-NATI)</h3>
+                <p>Licence en Mathématiques et Informatique</p>
+                <p><em>Obtenu en 2023</em></p>
+            </div>
+            <div class="education-item">
+                <h3>Lycée Mathieu Bouké</h3>
+                <p>Baccalauréat série D (Sciences)</p>
+                <p><em>Obtenu en 2019</em></p>
+            </div>
+        </section>
+
+        <section id="projets" class="section">
+            <h2>Projets innovants</h2>
+            <div class="project-item">
+                <h3>BRAS ROBOTIQUE INTELLIGENT</h3>
+                <p>Conception et implémentation d'un bras robotique autonome utilisant des algorithmes de machine learning pour le tri intelligent de composants électroniques. Ce projet combine des techniques avancées de vision par ordinateur, d'apprentissage par renforcement et de contrôle robotique.</p>
+            </div>
+            <div class="project-item">
+                <h3>FIOB (Fast Infos et Opportunités au Bénin)</h3>
+                <p>Développement d'une application mobile innovante offrant un accès rapide et personnalisé aux informations et opportunités au Bénin. L'application utilise des algorithmes de recommandation basés sur le machine learning pour fournir un contenu pertinent à chaque utilisateur.</p>
+            </div>
+            <div class="project-item">
+                <h3>Plateforme de prédiction COVID-19</h3>
+                <p>Conception et déploiement d'une plateforme d'IA capable d'utiliser des données respiratoires pour prédire si un patient est atteint du COVID-19. Cette solution innovante combine des techniques avancées de traitement de données médicales et d'apprentissage automatique pour fournir des prédictions précises et rapides.</p>
+                <p><strong>Tester la solution :</strong> <a href="https://moussinou-covid-diagnostics.streamlit.app/">Lien vers l'application</a></p>
+                <p><strong>Document Technique :</strong> <a href="https://drive.google.com/file/d/1jl1MJON2KpFDIaJZsnYck7PHzKHaN5Uv/view?usp=sharing">Lien vers le document</a></p>
+            </div>
+            <div class="project-item">
+                <h3>Prédiction de désabonnement clients (Churn Prediction)</h3>
+                <p>Conception et déploiement d'une plateforme basée sur l'IA capable de prédire le départ ou désabonnement des clients d'une entreprise de télécommunications. Ce projet utilise des algorithmes de machine learning avancés pour analyser les comportements des clients et identifier les facteurs de risque de désabonnement.</p>
+                <p><strong>Tester la solution :</strong> <a href="https://moussinouchurnpredict.streamlit.app/">Lien vers l'application</a></p>
+            </div>
+            <div class="project-item">
+                <h3>Application web de gestion des projets collaboratifs</h3>
+                <p>Développement d'une plateforme de gestion de projets collaboratifs permettant aux équipes de planifier, suivre et collaborer en temps réel. Ce projet utilise Vue.js pour le frontend, Django pour le backend, et intègre un système de gestion des tâches, des rôles utilisateurs et un chat collaboratif.</p>
+            </div>
+        </section>
+
+        <section id="langues" class="section">
+            <h2>Compétences linguistiques</h2>
+            <ul class="languages-list">
+                <li>Dendi (langue maternelle)</li>
+                <li>Français (courant)</li>
+                <li>Arabe (courant)</li>
+                <li>Anglais (professionnel)</li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
