@@ -134,18 +134,27 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            gap: 10px;
         }
 
         .contact-info li {
-            flex-basis: calc(50% - 10px);
+            flex-basis: calc(50% - 5px);
             margin-bottom: 10px;
             display: flex;
             align-items: center;
+            word-break: break-all;
+            overflow-wrap: break-word;
         }
 
         .contact-info li i {
             margin-left: 10px;
             color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .contact-info li a {
+            word-break: break-all;
+            overflow-wrap: break-word;
         }
 
         ul {
@@ -564,6 +573,8 @@
             display: flex;
             align-items: flex-start;
             border-bottom: 1px solid #f0f0f0;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         .experience-skills li:last-child, .experience-impact li:last-child {
@@ -578,6 +589,11 @@
             flex-shrink: 0;
         }
 
+        .experience-skills li strong, .experience-impact li strong {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
         a {
             color: var(--primary-color);
             text-decoration: none;
@@ -590,8 +606,23 @@
 
         /* Responsive design */
         @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
             .contact-info li {
                 flex-basis: 100%;
+                margin-bottom: 0;
+                padding: 0.8rem;
+                background-color: #f8f9fa;
+                border-radius: 8px;
+                border-right: 4px solid var(--primary-color);
+            }
+
+            .contact-info li i {
+                margin-left: 15px;
+                font-size: 1.1rem;
             }
             
             .profile-pic {
@@ -621,6 +652,25 @@
                 padding: 0.8rem;
             }
 
+            .experience-skills li, .experience-impact li {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 0;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            .experience-skills li i, .experience-impact li i {
+                margin-left: 0;
+                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+            }
+
+            .experience-skills li strong, .experience-impact li strong {
+                display: block;
+                margin-bottom: 0.3rem;
+                font-size: 1rem;
+            }
+
             .formation-item {
                 padding: 1rem;
             }
@@ -646,6 +696,56 @@
             .link-button {
                 justify-content: center;
                 width: 100%;
+            }
+
+            .section {
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Responsive design pour très petits écrans */
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .contact-info li {
+                padding: 0.6rem;
+                font-size: 0.9rem;
+            }
+
+            .experience-skills li, .experience-impact li {
+                padding: 0.8rem 0;
+            }
+
+            .experience-skills li strong, .experience-impact li strong {
+                font-size: 0.9rem;
+            }
+
+            .section {
+                padding: 1rem;
+                margin: 1rem 0;
+            }
+
+            .formation-item, .education-item, .project-item {
+                padding: 0.8rem;
+            }
+
+            .experience-item {
+                padding: 0.8rem;
+            }
+
+            .experience-projects, .experience-skills, .experience-impact {
+                padding: 0.6rem;
             }
         }
     </style>
