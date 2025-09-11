@@ -133,8 +133,328 @@
             background-color: #e9e9e9;
         }
 
-        .formation-item h3, .education-item h3, .project-item h3 {
+        .formation-item h3, .education-item h3, .project-item h3, .project-item h4 {
             color: var(--primary-color);
+        }
+
+        /* Styles pour les catégories de projets */
+        .project-category {
+            margin-bottom: 3rem;
+        }
+
+        .project-category h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-category h3 i {
+            margin-right: 0.5rem;
+        }
+
+        /* Styles pour les projets mis en vedette */
+        .project-item.featured {
+            border: 2px solid var(--primary-color);
+            background: linear-gradient(135deg, #f8f9ff, #ffffff);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-item.featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-header h4 {
+            flex: 1;
+            margin-right: 1rem;
+        }
+
+        .project-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge.primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .badge.secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .badge.accent {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .project-features {
+            margin: 1rem 0;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .project-features h5 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .project-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-features li {
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .project-features li i {
+            color: var(--primary-color);
+            margin-right: 0.5rem;
+            width: 16px;
+        }
+
+        .project-tech {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background-color: #e8f4fd;
+            border-radius: 6px;
+            border: 1px solid #b3d9ff;
+        }
+
+        .project-tech h5 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .project-tech p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .project-links {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background-color: #f0f8ff;
+            border-radius: 6px;
+            border: 1px solid #cce7ff;
+        }
+
+        .project-links h5 {
+            color: var(--secondary-color);
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .link-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .link-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .link-button i {
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .link-button.playstore {
+            background: linear-gradient(135deg, #01875f, #00a86b);
+            color: white;
+        }
+
+        .link-button.playstore:hover {
+            background: linear-gradient(135deg, #016b4a, #008f5a);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(1, 135, 95, 0.3);
+        }
+
+        .link-button.video {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: white;
+        }
+
+        .link-button.video:hover {
+            background: linear-gradient(135deg, #e60000, #b30000);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+        }
+
+        /* Responsive pour les boutons de liens */
+        @media (max-width: 768px) {
+            .link-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .link-button {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        /* Styles pour l'expérience professionnelle */
+        .experience-item {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            background-color: #f0f8ff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-header h3 {
+            flex: 1;
+            margin-right: 1rem;
+            color: var(--primary-color);
+        }
+
+        .experience-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .experience-projects, .experience-skills, .experience-impact {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background-color: #ffffff;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .experience-projects h4, .experience-skills h4, .experience-impact h4 {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .project-detail {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid var(--accent-color);
+        }
+
+        .project-detail h5 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .experience-skills ul, .experience-impact ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .experience-skills li, .experience-impact li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .experience-skills li:last-child, .experience-impact li:last-child {
+            border-bottom: none;
+        }
+
+        .experience-skills li i, .experience-impact li i {
+            color: var(--primary-color);
+            margin-right: 0.8rem;
+            margin-top: 0.2rem;
+            width: 16px;
+            flex-shrink: 0;
+        }
+
+        /* Responsive design pour les projets */
+        @media (max-width: 768px) {
+            .project-header, .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .project-badges, .experience-badges {
+                margin-top: 0.5rem;
+            }
+
+            .project-category h3 {
+                font-size: 1.3rem;
+                padding: 0.8rem;
+            }
+
+            .experience-item {
+                padding: 1rem;
+            }
+
+            .experience-projects, .experience-skills, .experience-impact {
+                padding: 0.8rem;
+            }
         }
 
         a {
@@ -201,26 +521,18 @@
         <section id="formation" class="section">
             <h2>Formation</h2>
             <div class="formation-item">
-                <h3>BENIN EXCELLENCE (EEIA 2023)</h3>
-                <p>Formation de base en Intelligence Artificielle</p>
+                <h3>AFRIKDUTECH - Programme DCLIC (OIF)</h3>
+                <p>Formation intensive en Développement Mobile Flutter - Programme DCLIC de l'Organisation Internationale de la Francophonie</p>
                 <ul>
-                    <li>Programmation avancée en Python</li>
-                    <li>Fondamentaux du Machine Learning</li>
-                    <li>Introduction à la Robotique</li>
-                    <li>Projets pratiques en IA</li>
+                    <li>Design mobile avec Figma : conception d'interfaces utilisateur et réalisation de maquettes</li>
+                    <li>FlutterFlow : développement low-code d'applications mobiles</li>
+                    <li>Algorithmie et logique de programmation</li>
+                    <li>APIs et Postman : requêtes (GET, POST, DELETE), tests d'API avec certification officielle</li>
+                    <li>Langage Dart : programmation orientée objet</li>
+                    <li>Flutter : développement d'applications mobiles cross-platform</li>
+                    <li>Projets concrets avec présentation devant jury (toutes les 1-2 semaines)</li>
                 </ul>
-                <p><em>17/07/2023 - 12/08/2023</em></p>
-            </div>
-            <div class="formation-item">
-                <h3>DATA AFRIQUE HUB</h3>
-                <p>Formation complète en Data Science</p>
-                <ul>
-                    <li>Data Engineering: ETL, pipelines de données</li>
-                    <li>Analyse de données avancée</li>
-                    <li>Machine Learning appliqué</li>
-                    <li>Déploiement d'applications data-driven</li>
-                </ul>
-                <p><em>04/2024 - 07/2024</em></p>
+                <p><em>Décembre 2024 - Avril 2025</em></p>
             </div>
             <div class="formation-item">
                 <h3>AFRICA TECHUP TOURS</h3>
@@ -234,6 +546,28 @@
                     <li>Monitoring avec Grafana</li>
                 </ul>
                 <p><em>04/2024 - 09/2024</em></p>
+            </div>
+            <div class="formation-item">
+                <h3>DATA AFRIQUE HUB</h3>
+                <p>Formation complète en Data Science</p>
+                <ul>
+                    <li>Data Engineering: ETL, pipelines de données</li>
+                    <li>Analyse de données avancée</li>
+                    <li>Machine Learning appliqué</li>
+                    <li>Déploiement d'applications data-driven</li>
+                </ul>
+                <p><em>04/2024 - 07/2024</em></p>
+            </div>
+            <div class="formation-item">
+                <h3>BENIN EXCELLENCE (EEIA 2023)</h3>
+                <p>Formation de base en Intelligence Artificielle</p>
+                <ul>
+                    <li>Programmation avancée en Python</li>
+                    <li>Fondamentaux du Machine Learning</li>
+                    <li>Introduction à la Robotique</li>
+                    <li>Projets pratiques en IA</li>
+                </ul>
+                <p><em>17/07/2023 - 12/08/2023</em></p>
             </div>
         </section>
 
@@ -256,35 +590,153 @@
             </div>
         </section>
 
+        <section id="experience" class="section">
+            <h2><i class="fas fa-briefcase"></i> Expérience professionnelle</h2>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3><i class="fas fa-laptop-code"></i> Stage Professionnel - Développeur Mobile</h3>
+                    <div class="experience-badges">
+                        <span class="badge primary">CodeLab</span>
+                        <span class="badge secondary">En cours</span>
+                    </div>
+                </div>
+                <p><strong>CodeLab</strong> | <em>2 Juin 2025 - Présent</em></p>
+                <p>Stage professionnel en développement mobile où je contribue activement au développement et à l'amélioration d'applications mobiles cross-platform.</p>
+                
+                <div class="experience-projects">
+                    <h4><i class="fas fa-project-diagram"></i> Projets principaux :</h4>
+                    <div class="project-detail">
+                        <h5><i class="fas fa-mobile-alt"></i> Minfo</h5>
+                        <p>Application mobile complète disponible sur <strong>Web</strong>, <strong>Android</strong> et <strong>iOS</strong>. Participation active au développement des nouvelles fonctionnalités, mises à jour et améliorations continues de l'application.</p>
+                        <div class="project-tech">
+                            <strong>Technologies :</strong> Flutter • Dart • Cross-platform • Web • Mobile
+                        </div>
+                    </div>
+                    <div class="project-detail">
+                        <h5><i class="fas fa-cogs"></i> Autres projets mobiles</h5>
+                        <p>Développement et maintenance d'autres applications mobiles de l'entreprise, contribuant à l'écosystème technologique de CodeLab.</p>
+                    </div>
+                </div>
+
+                <div class="experience-skills">
+                    <h4><i class="fas fa-tools"></i> Compétences acquises :</h4>
+                    <ul>
+                        <li><i class="fas fa-globe"></i> <strong>Internationalisation des applications</strong> - Support multi-langues et adaptation culturelle</li>
+                        <li><i class="fas fa-plug"></i> <strong>Intégration d'API REST</strong> - Connexion et synchronisation avec services backend</li>
+                        <li><i class="fas fa-map-marked-alt"></i> <strong>Google Maps</strong> - Intégration de cartes et géolocalisation</li>
+                        <li><i class="fas fa-mobile-alt"></i> <strong>Flutter avancé</strong> - Maîtrise approfondie du framework et bonnes pratiques</li>
+                        <li><i class="fas fa-code-branch"></i> <strong>Développement cross-platform</strong> - Applications unifiées Web/Android/iOS</li>
+                        <li><i class="fas fa-users"></i> <strong>Travail en équipe</strong> - Collaboration sur projets d'entreprise</li>
+                    </ul>
+                </div>
+
+                <div class="experience-impact">
+                    <h4><i class="fas fa-chart-line"></i> Impact et réalisations :</h4>
+                    <ul>
+                        <li>Contribution au développement de fonctionnalités innovantes</li>
+                        <li>Amélioration de l'expérience utilisateur sur toutes les plateformes</li>
+                        <li>Optimisation des performances des applications</li>
+                        <li>Mise en œuvre de bonnes pratiques de développement mobile</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
         <section id="projets" class="section">
-            <h2>Projets innovants</h2>
-            <div class="project-item">
-                <h3>BRAS ROBOTIQUE INTELLIGENT</h3>
-                <p>Conception et implémentation d'un bras robotique autonome utilisant des algorithmes de machine learning pour le tri intelligent de composants électroniques. Ce projet combine des techniques avancées de vision par ordinateur, d'apprentissage par renforcement et de contrôle robotique.</p>
+            <h2><i class="fas fa-rocket"></i> Projets innovants</h2>
+            
+            <!-- Développement Web & Mobile -->
+            <div class="project-category">
+                <h3><i class="fas fa-mobile-alt"></i> Développement Web & Mobile</h3>
+                
+                <div class="project-item featured">
+                    <div class="project-header">
+                        <h4><i class="fas fa-star"></i> AlloPro - Plateforme de Services Locaux</h4>
+                        <div class="project-badges">
+                            <span class="badge primary">Flutter</span>
+                            <span class="badge secondary">Firebase</span>
+                            <span class="badge accent">Multi-rôles</span>
+                        </div>
+                    </div>
+                    <p><strong>Description :</strong> Application mobile innovante facilitant la mise en relation entre clients et prestataires de services qualifiés. Plateforme complète avec système d'abonnement, géolocalisation, messagerie temps réel et support multilingue.</p>
+                    <div class="project-features">
+                        <h5><i class="fas fa-cogs"></i> Fonctionnalités clés :</h5>
+                        <ul>
+                            <li><i class="fas fa-users"></i> Système multi-rôles (Clients, Prestataires, Admins)</li>
+                            <li><i class="fas fa-search-location"></i> Recherche géolocalisée avec filtres avancés</li>
+                            <li><i class="fas fa-comments"></i> Messagerie temps réel avec Firebase</li>
+                            <li><i class="fas fa-credit-card"></i> Système d'abonnement AlloPro+ (3 plans)</li>
+                            <li><i class="fas fa-globe"></i> Support multilingue (FR, EN, AR) avec RTL</li>
+                            <li><i class="fas fa-mobile-alt"></i> Interface responsive et intuitive</li>
+                        </ul>
+                    </div>
+                    <div class="project-tech">
+                        <h5><i class="fas fa-code"></i> Technologies :</h5>
+                        <p>Flutter • Dart • Firebase (Auth, Firestore, Storage, Messaging) • GetX </p>
+                    </div>
+                    <div class="project-links">
+                        <h5><i class="fas fa-external-link-alt"></i> Liens utiles :</h5>
+                        <div class="link-buttons">
+                            <a href="https://play.google.com/store/apps/details?id=com.allopro.allopro" target="_blank" class="link-button playstore">
+                                <i class="fab fa-google-play"></i> Télécharger sur Play Store
+                            </a>
+                            <a href="https://youtu.be/XSc0m07hXcM?si=pplgiT2FSJfK-_qj" target="_blank" class="link-button video">
+                                <i class="fab fa-youtube"></i> Voir la vidéo de présentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="project-item">
+                    <h4><i class="fas fa-project-diagram"></i> Application web de gestion des projets collaboratifs</h4>
+                    <p>Plateforme de gestion de projets collaboratifs permettant aux équipes de planifier, suivre et collaborer en temps réel. Intègre un système de gestion des tâches, des rôles utilisateurs et un chat collaboratif.</p>
+                    <div class="project-tech">
+                        <strong>Technologies :</strong> Vue.js • Django • WebSocket • PostgreSQL
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h4><i class="fas fa-pills"></i> ÌleraSure - Accès aux médicaments au Bénin</h4>
+                    <p>Application web innovante dédiée à transformer l'accès aux médicaments au Bénin. Consultation en ligne, recherche de médicaments par proximité et prix, commandes directes en ligne.</p>
+                    <p><strong><i class="fas fa-external-link-alt"></i> Démo :</strong> <a href="https://blue-worm-998583.hostingersite.com/">Tester l'application</a></p>
+                    <div class="project-tech">
+                        <strong>Technologies :</strong> Vue.js • Node.js • MySQL
+                    </div>
+                </div>
             </div>
-            <div class="project-item">
-                <h3>FIOB (Fast Infos et Opportunités au Bénin)</h3>
-                <p>Développement d'une application mobile innovante offrant un accès rapide et personnalisé aux informations et opportunités au Bénin. L'application utilise des algorithmes de recommandation basés sur le machine learning pour fournir un contenu pertinent à chaque utilisateur.</p>
-            </div>
-            <div class="project-item">
-                <h3>Plateforme de prédiction COVID-19</h3>
-                <p>Conception et déploiement d'une plateforme d'IA capable d'utiliser des données respiratoires pour prédire si un patient est atteint du COVID-19. Cette solution innovante combine des techniques avancées de traitement de données médicales et d'apprentissage automatique pour fournir des prédictions précises et rapides.</p>
-                <p><strong>Tester la solution :</strong> <a href="https://moussinou-covid-diagnostics.streamlit.app/">Lien vers l'application</a></p>
-                <p><strong>Document Technique :</strong> <a href="https://drive.google.com/file/d/1jl1MJON2KpFDIaJZsnYck7PHzKHaN5Uv/view?usp=sharing">Lien vers le document</a></p>
-            </div>
-            <div class="project-item">
-                <h3>Prédiction de désabonnement clients (Churn Prediction)</h3>
-                <p>Conception et déploiement d'une plateforme basée sur l'IA capable de prédire le départ ou désabonnement des clients d'une entreprise de télécommunications. Ce projet utilise des algorithmes de machine learning avancés pour analyser les comportements des clients et identifier les facteurs de risque de désabonnement.</p>
-                <p><strong>Tester la solution :</strong> <a href="https://moussinouchurnpredict.streamlit.app/">Lien vers l'application</a></p>
-            </div>
-            <div class="project-item">
-                <h3>Application web de gestion des projets collaboratifs</h3>
-                <p>Développement d'une plateforme de gestion de projets collaboratifs permettant aux équipes de planifier, suivre et collaborer en temps réel. Ce projet utilise Vue.js pour le frontend, Django pour le backend, et intègre un système de gestion des tâches, des rôles utilisateurs et un chat collaboratif.</p>
-            </div>
-            <div class="project-item">
-                <h3>ilerasure : Simplifiez l'accès aux médicaments au Bénin  </h3>
-                <p>ÌleraSure est une application innovante dédiée à transformer l'accès aux médicaments au Bénin. Grâce à une plateforme intuitive et fonctionnelle, les utilisateurs pourront faire une consultation en ligne et obtenir une ordonnance,  rechercher des médicaments disponibles dans les pharmacies locales, afficher les options par proximité et prix, et passer des commandes directement en ligne . </p>
-                <p><strong>Tester la solution :</strong> <a href="https://blue-worm-998583.hostingersite.com/">Lien vers l'application</a></p>
+
+            <!-- Intelligence Artificielle & Machine Learning -->
+            <div class="project-category">
+                <h3><i class="fas fa-brain"></i> Intelligence Artificielle & Machine Learning</h3>
+                
+                <div class="project-item">
+                    <h4><i class="fas fa-robot"></i> Bras Robotique Intelligent</h4>
+                    <p>Conception et implémentation d'un bras robotique autonome utilisant des algorithmes de machine learning pour le tri intelligent de composants électroniques. Combine vision par ordinateur, apprentissage par renforcement et contrôle robotique.</p>
+                    <div class="project-tech">
+                        <strong>Technologies :</strong> Python • OpenCV • TensorFlow • Robotique • Computer Vision
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h4><i class="fas fa-virus"></i> Plateforme de prédiction COVID-19</h4>
+                    <p>Plateforme d'IA capable d'utiliser des données respiratoires pour prédire si un patient est atteint du COVID-19. Combine traitement de données médicales et apprentissage automatique pour des prédictions précises et rapides.</p>
+                    <p><strong><i class="fas fa-external-link-alt"></i> Démo :</strong> <a href="https://moussinou-covid-diagnostics.streamlit.app/">Tester la solution</a></p>
+                    <p><strong><i class="fas fa-file-pdf"></i> Documentation :</strong> <a href="https://drive.google.com/file/d/1jl1MJON2KpFDIaJZsnYck7PHzKHaN5Uv/view?usp=sharing">Document technique</a></p>
+                    <div class="project-tech">
+                        <strong>Technologies :</strong> Python • Scikit-learn • Streamlit • Machine Learning • Data Science
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <h4><i class="fas fa-chart-line"></i> Prédiction de désabonnement clients (Churn Prediction)</h4>
+                    <p>Plateforme basée sur l'IA capable de prédire le départ ou désabonnement des clients d'une entreprise de télécommunications. Utilise des algorithmes de machine learning avancés pour analyser les comportements et identifier les facteurs de risque.</p>
+                    <p><strong><i class="fas fa-external-link-alt"></i> Démo :</strong> <a href="https://moussinouchurnpredict.streamlit.app/">Tester la solution</a></p>
+                    <div class="project-tech">
+                        <strong>Technologies :</strong> Python • Pandas • Scikit-learn • Streamlit • Data Analysis
+                    </div>
+                </div>
             </div>
         </section>
 
