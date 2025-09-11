@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moussinou MAMA - Full Stack Developer | Data Scientist | AI Specialist</title>
+    <title>موسينو ماما - مطور Full Stack | عالم بيانات | متخصص في الذكاء الاصطناعي</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -69,7 +69,7 @@
         .language-selector {
             position: absolute;
             top: 20px;
-            right: 20px;
+            left: 20px;
             z-index: 10;
         }
 
@@ -144,7 +144,7 @@
         }
 
         .contact-info li i {
-            margin-right: 10px;
+            margin-left: 10px;
             color: var(--primary-color);
         }
 
@@ -176,7 +176,7 @@
             padding: 1.5rem;
             background-color: #f9f9f9;
             border-radius: 10px;
-            border-left: 4px solid var(--primary-color);
+            border-right: 4px solid var(--primary-color);
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
@@ -211,7 +211,7 @@
             padding: 0.6rem 0;
             border-bottom: 1px solid #e0e0e0;
             position: relative;
-            padding-left: 1.5rem;
+            padding-right: 1.5rem;
             transition: all 0.3s ease;
         }
 
@@ -221,7 +221,7 @@
 
         .formation-item li:hover {
             background-color: #f8f9fa;
-            padding-left: 2rem;
+            padding-right: 2rem;
         }
 
         .formation-item li::before {
@@ -229,7 +229,7 @@
             color: var(--primary-color);
             font-weight: bold;
             position: absolute;
-            left: 0;
+            right: 0;
             top: 0.6rem;
             font-size: 0.8rem;
         }
@@ -255,13 +255,13 @@
             content: '';
             position: absolute;
             top: 0;
-            right: 0;
+            left: 0;
             width: 100px;
             height: 100px;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             opacity: 0.05;
             border-radius: 50%;
-            transform: translate(30px, -30px);
+            transform: translate(-30px, -30px);
         }
 
         .formation-item h3 {
@@ -313,7 +313,7 @@
         }
 
         .project-category h3 i {
-            margin-right: 0.5rem;
+            margin-left: 0.5rem;
         }
 
         /* Styles pour les projets mis en vedette */
@@ -328,8 +328,8 @@
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
             right: 0;
+            left: 0;
             height: 4px;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
         }
@@ -344,7 +344,7 @@
 
         .project-header h4 {
             flex: 1;
-            margin-right: 1rem;
+            margin-left: 1rem;
         }
 
         .project-badges {
@@ -382,7 +382,7 @@
             padding: 1rem;
             background-color: #f8f9fa;
             border-radius: 8px;
-            border-left: 4px solid var(--primary-color);
+            border-right: 4px solid var(--primary-color);
         }
 
         .project-features h5 {
@@ -404,7 +404,7 @@
 
         .project-features li i {
             color: var(--primary-color);
-            margin-right: 0.5rem;
+            margin-left: 0.5rem;
             width: 16px;
         }
 
@@ -461,7 +461,7 @@
         }
 
         .link-button i {
-            margin-right: 0.5rem;
+            margin-left: 0.5rem;
             font-size: 1.1rem;
         }
 
@@ -493,7 +493,7 @@
             padding: 1.5rem;
             background-color: #f9f9f9;
             border-radius: 10px;
-            border-left: 5px solid var(--primary-color);
+            border-right: 5px solid var(--primary-color);
             transition: all 0.3s ease;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
@@ -514,7 +514,7 @@
 
         .experience-header h3 {
             flex: 1;
-            margin-right: 1rem;
+            margin-left: 1rem;
             color: var(--primary-color);
         }
 
@@ -545,7 +545,7 @@
             padding: 1rem;
             background-color: #f8f9fa;
             border-radius: 6px;
-            border-left: 3px solid var(--accent-color);
+            border-right: 3px solid var(--accent-color);
         }
 
         .project-detail h5 {
@@ -572,7 +572,7 @@
 
         .experience-skills li i, .experience-impact li i {
             color: var(--primary-color);
-            margin-right: 0.8rem;
+            margin-left: 0.8rem;
             margin-top: 0.2rem;
             width: 16px;
             flex-shrink: 0;
@@ -631,11 +631,11 @@
             
             .formation-item li {
                 padding: 0.5rem 0;
-                padding-left: 1.2rem;
+                padding-right: 1.2rem;
             }
             
             .formation-item li:hover {
-                padding-left: 1.5rem;
+                padding-right: 1.5rem;
             }
 
             .link-buttons {
@@ -657,281 +657,281 @@
             <div class="language-selector">
                 <select onchange="changeLanguage()">
                     <option value="fr">🇫🇷 Français</option>
-                    <option value="ar">🇸🇦 العربية</option>
-                    <option value="en" selected>🇺🇸 English</option>
+                    <option value="ar" selected>🇸🇦 العربية</option>
+                    <option value="en">🇺🇸 English</option>
                 </select>
             </div>
             
-            <img id="profile-image" src="msn.png" alt="Moussinou MAMA" class="profile-pic">
-            <h1>Moussinou MAMA</h1>
-            <p>Full Stack Developer | Network Technician | Data Scientist | AI and Machine Learning Specialist</p>
+            <img id="profile-image" src="msn.png" alt="موسينو ماما" class="profile-pic">
+            <h1>موسينو ماما</h1>
+            <p>مطور Full Stack | فني شبكات | عالم بيانات | متخصص في الذكاء الاصطناعي والتعلم الآلي</p>
         </div>
     </header>
 
     <main class="container">
         <section id="contact" class="section">
-            <h2>Contact</h2>
+            <h2>الاتصال</h2>
             <ul class="contact-info">
                 <li><i class="fas fa-envelope"></i> moussinoumama52@gmail.com</li>
                 <li><i class="fas fa-phone"></i> +2290195231680 / +2290162241874</li>
-                <li><i class="fas fa-map-marker-alt"></i> Zogbadjè / Abomey Calavi / Benin</li>
+                <li><i class="fas fa-map-marker-alt"></i> زوجباجي / أبومي كالافي / بنين</li>
                 <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/moussinou-mama-8b6270284">LinkedIn</a></li>
                 <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/22995231680">WhatsApp</a></li>
             </ul>
         </section>
 
         <section id="objectif" class="section">
-            <h2>Professional Objective</h2>
-            <p>Passionate and innovative developer, I seek to push the boundaries of technology by combining my expertise in mathematics, computer science, and artificial intelligence. My goal is to design advanced technological solutions that address the complex challenges of our digital era. I aim to contribute to large-scale projects in AI and machine learning, while continuing to develop my skills in emerging areas of computer science.</p>
+            <h2>الهدف المهني</h2>
+            <p>مطور شغوف ومبتكر، أسعى إلى دفع حدود التكنولوجيا من خلال الجمع بين خبرتي في الرياضيات وعلوم الحاسوب والذكاء الاصطناعي. هدفي هو تصميم حلول تكنولوجية متقدمة ترد على التحديات المعقدة في عصرنا الرقمي. أهدف إلى المساهمة في مشاريع ضخمة في الذكاء الاصطناعي والتعلم الآلي، مع الاستمرار في تطوير مهاراتي في المجالات الناشئة في علوم الحاسوب.</p>
         </section>
 
         <section id="competences" class="section">
-            <h2>Skills</h2>
+            <h2>المهارات</h2>
             <ul class="skills-list">
                 <li>Python</li>
                 <li>JavaScript</li>
-                <li>Web Development (HTML, CSS, Vuejs, React)</li>
-                <li>Mobile Development (Flutter)</li>
-                <li>Databases (SQL, NoSQL)</li>
+                <li>تطوير الويب (HTML, CSS, Vuejs, React)</li>
+                <li>تطوير الهاتف المحمول (Flutter)</li>
+                <li>قواعد البيانات (SQL, NoSQL)</li>
                 <li>DevOps (Docker, Kubernetes)</li>
-                <li>Cloud Computing (AWS, GCP)</li>
-                <li>Signal and image processing with Python</li>
-                <li>Data Analysis</li>
-                <li>Machine Learning</li>
-                <li>Algorithms and data structures</li>
-                <li>Git and version control</li>
+                <li>الحوسبة السحابية (AWS, GCP)</li>
+                <li>معالجة الإشارات والصور بـ Python</li>
+                <li>تحليل البيانات</li>
+                <li>التعلم الآلي</li>
+                <li>الخوارزميات وهياكل البيانات</li>
+                <li>Git وإدارة الإصدارات</li>
             </ul>
         </section>
 
         <section id="formation" class="section">
-            <h2>Training</h2>
+            <h2>التدريب</h2>
             <div class="formation-item">
-                <h3>AFRIKDUTECH - DCLIC Program (OIF)</h3>
-                <p>Intensive training in Flutter Mobile Development - DCLIC Program of the International Organization of La Francophonie</p>
+                <h3>AFRIKDUTECH - برنامج DCLIC (OIF)</h3>
+                <p>تدريب مكثف في تطوير الهاتف المحمول Flutter - برنامج DCLIC للمنظمة الدولية للفرنكوفونية</p>
                 <ul>
-                    <li>Mobile design with Figma: user interface design and mockup creation</li>
-                    <li>FlutterFlow: low-code mobile application development</li>
-                    <li>Algorithms and programming logic</li>
-                    <li>APIs and Postman: requests (GET, POST, DELETE), API testing with official certification</li>
-                    <li>Dart language: object-oriented programming</li>
-                    <li>Flutter: cross-platform mobile application development</li>
-                    <li>Concrete projects with jury presentation (every 1-2 weeks)</li>
-                    <li>CV and cover letter design for professional integration</li>
+                    <li>تصميم الهاتف المحمول بـ Figma: تصميم واجهات المستخدم وإنشاء النماذج</li>
+                    <li>FlutterFlow: تطوير تطبيقات الهاتف المحمول منخفضة الكود</li>
+                    <li>الخوارزميات ومنطق البرمجة</li>
+                    <li>APIs و Postman: طلبات (GET, POST, DELETE)، اختبار API مع شهادة رسمية</li>
+                    <li>لغة Dart: البرمجة الكائنية</li>
+                    <li>Flutter: تطوير تطبيقات الهاتف المحمول متعددة المنصات</li>
+                    <li>مشاريع عملية مع عرض أمام لجنة (كل 1-2 أسبوع)</li>
+                    <li>تصميم السيرة الذاتية ورسالة التحفيز للاندماج المهني</li>
                 </ul>
-                <p><em>December 2024 - April 2025</em></p>
+                <p><em>ديسمبر 2024 - أبريل 2025</em></p>
             </div>
             <div class="formation-item">
                 <h3>AFRICA TECHUP TOURS</h3>
-                <p>Training in DATA/AI with specialization in DATA INFRASTRUCTURE, DevOps/MLOps and Cloud Computing</p>
+                <p>تدريب في البيانات/الذكاء الاصطناعي مع التخصص في البنية التحتية للبيانات، DevOps/MLOps والحوسبة السحابية</p>
                 <ul>
-                    <li>Infrastructure as Code</li>
-                    <li>Containerization with Docker</li>
-                    <li>Orchestration with Kubernetes</li>
-                    <li>Cloud platforms (AWS, GCP, Azure)</li>
-                    <li>ML model deployment</li>
-                    <li>Monitoring with Grafana</li>
+                    <li>البنية التحتية ككود</li>
+                    <li>الحاويات مع Docker</li>
+                    <li>التنسيق مع Kubernetes</li>
+                    <li>منصات السحابة (AWS, GCP, Azure)</li>
+                    <li>نشر نماذج التعلم الآلي</li>
+                    <li>المراقبة مع Grafana</li>
                 </ul>
                 <p><em>04/2024 - 09/2024</em></p>
             </div>
             <div class="formation-item">
                 <h3>DATA AFRIQUE HUB</h3>
-                <p>Complete Data Science training</p>
+                <p>تدريب شامل في علم البيانات</p>
                 <ul>
-                    <li>Data Engineering: ETL, data pipelines</li>
-                    <li>Advanced data analysis</li>
-                    <li>Applied Machine Learning</li>
-                    <li>Data-driven application deployment</li>
+                    <li>هندسة البيانات: ETL، خطوط أنابيب البيانات</li>
+                    <li>تحليل البيانات المتقدم</li>
+                    <li>التعلم الآلي التطبيقي</li>
+                    <li>نشر التطبيقات القائمة على البيانات</li>
                 </ul>
                 <p><em>04/2024 - 07/2024</em></p>
             </div>
             <div class="formation-item">
                 <h3>BENIN EXCELLENCE (EEIA 2023)</h3>
-                <p>Basic Artificial Intelligence training</p>
+                <p>تدريب أساسي في الذكاء الاصطناعي</p>
                 <ul>
-                    <li>Advanced Python programming</li>
-                    <li>Machine Learning fundamentals</li>
-                    <li>Introduction to Robotics</li>
-                    <li>Practical AI projects</li>
+                    <li>برمجة متقدمة بـ Python</li>
+                    <li>أساسيات التعلم الآلي</li>
+                    <li>مقدمة في الروبوتات</li>
+                    <li>مشاريع عملية في الذكاء الاصطناعي</li>
                 </ul>
                 <p><em>17/07/2023 - 12/08/2023</em></p>
             </div>
         </section>
 
         <section id="education" class="section">
-            <h2>Academic Background</h2>
+            <h2>المسار الأكاديمي</h2>
             <div class="education-item">
                 <h3>IFRI-UAC</h3>
-                <p>Master's in Information Systems and Computer Networks</p>
-                <p><em>In progress</em></p>
+                <p>ماجستير في أنظمة المعلومات وشبكات الحاسوب</p>
+                <p><em>قيد التقدم</em></p>
             </div>
             <div class="education-item">
                 <h3>UNSTIM-ABOMEY (FAST-NATI)</h3>
-                <p>Bachelor's in Mathematics and Computer Science</p>
-                <p><em>Obtained in 2023</em></p>
+                <p>إجازة في الرياضيات وعلوم الحاسوب</p>
+                <p><em>تم الحصول عليها في 2023</em></p>
             </div>
             <div class="education-item">
-                <h3>Lycée Mathieu Bouké</h3>
-                <p>Baccalaureate series D (Sciences)</p>
-                <p><em>Obtained in 2019</em></p>
+                <h3>ثانوية ماثيو بوكي</h3>
+                <p>بكالوريا شعبة D (علوم)</p>
+                <p><em>تم الحصول عليها في 2019</em></p>
             </div>
         </section>
 
         <section id="experience" class="section">
-            <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <h2><i class="fas fa-briefcase"></i> الخبرة المهنية</h2>
             
             <div class="experience-item">
                 <div class="experience-header">
-                    <h3><i class="fas fa-laptop-code"></i> Professional Internship - Mobile Developer</h3>
+                    <h3><i class="fas fa-laptop-code"></i> تدريب مهني - مطور الهاتف المحمول</h3>
                     <div class="experience-badges">
                         <span class="badge primary">CodeLab</span>
-                        <span class="badge secondary">Current</span>
+                        <span class="badge secondary">قيد التقدم</span>
                     </div>
                 </div>
-                <p><strong>CodeLab</strong> | <em>June 2, 2025 - Present</em></p>
-                <p>Professional internship in mobile development where I actively contribute to the development and improvement of cross-platform mobile applications.</p>
+                <p><strong>CodeLab</strong> | <em>2 يونيو 2025 - الحاضر</em></p>
+                <p>تدريب مهني في تطوير الهاتف المحمول حيث أساهم بنشاط في تطوير وتحسين تطبيقات الهاتف المحمول متعددة المنصات.</p>
                 
                 <div class="experience-projects">
-                    <h4><i class="fas fa-project-diagram"></i> Main projects:</h4>
+                    <h4><i class="fas fa-project-diagram"></i> المشاريع الرئيسية:</h4>
                     <div class="project-detail">
                         <h5><i class="fas fa-mobile-alt"></i> Minfo</h5>
-                        <p>Complete mobile application available on <strong>Web</strong>, <strong>Android</strong> and <strong>iOS</strong>. Active participation in the development of new features, updates and continuous improvements to the application.</p>
+                        <p>تطبيق هاتف محمول كامل متاح على الويب و Android و iOS. مشاركة نشطة في تطوير الميزات الجديدة والتحديثات والتحسينات المستمرة للتطبيق.</p>
                         <div class="project-tech">
-                            <strong>Technologies:</strong> Flutter • Dart • Cross-platform • Web • Mobile
+                            <strong>التقنيات:</strong> Flutter • Dart • Cross-platform • Web • Mobile
                         </div>
                     </div>
                     <div class="project-detail">
-                        <h5><i class="fas fa-cogs"></i> Other mobile projects</h5>
-                        <p>Development and maintenance of other company mobile applications, contributing to CodeLab's technological ecosystem.</p>
+                        <h5><i class="fas fa-cogs"></i> مشاريع هاتف محمول أخرى</h5>
+                        <p>تطوير وصيانة تطبيقات الهاتف المحمول الأخرى للشركة، المساهمة في النظام البيئي التكنولوجي لـ CodeLab.</p>
                     </div>
                 </div>
 
                 <div class="experience-skills">
-                    <h4><i class="fas fa-tools"></i> Acquired skills:</h4>
+                    <h4><i class="fas fa-tools"></i> المهارات المكتسبة:</h4>
                     <ul>
-                        <li><i class="fas fa-globe"></i> <strong>Application internationalization</strong> - Multi-language support and cultural adaptation</li>
-                        <li><i class="fas fa-plug"></i> <strong>REST API integration</strong> - Connection and synchronization with backend services</li>
-                        <li><i class="fas fa-map-marked-alt"></i> <strong>Google Maps</strong> - Map integration and geolocation</li>
-                        <li><i class="fas fa-mobile-alt"></i> <strong>Advanced Flutter</strong> - Deep mastery of the framework and best practices</li>
-                        <li><i class="fas fa-code-branch"></i> <strong>Cross-platform development</strong> - Unified Web/Android/iOS applications</li>
-                        <li><i class="fas fa-users"></i> <strong>Teamwork</strong> - Collaboration on company projects</li>
+                        <li><i class="fas fa-globe"></i> <strong>تدويل التطبيقات</strong> - دعم متعدد اللغات والتكيف الثقافي</li>
+                        <li><i class="fas fa-plug"></i> <strong>تكامل API REST</strong> - الاتصال والمزامنة مع خدمات الخادم</li>
+                        <li><i class="fas fa-map-marked-alt"></i> <strong>خرائط جوجل</strong> - تكامل الخرائط والموقع الجغرافي</li>
+                        <li><i class="fas fa-mobile-alt"></i> <strong>Flutter متقدم</strong> - إتقان عميق للإطار وأفضل الممارسات</li>
+                        <li><i class="fas fa-code-branch"></i> <strong>التطوير متعدد المنصات</strong> - تطبيقات موحدة للويب/Android/iOS</li>
+                        <li><i class="fas fa-users"></i> <strong>العمل الجماعي</strong> - التعاون في مشاريع الشركة</li>
                     </ul>
                 </div>
 
                 <div class="experience-impact">
-                    <h4><i class="fas fa-chart-line"></i> Impact and achievements:</h4>
+                    <h4><i class="fas fa-chart-line"></i> التأثير والإنجازات:</h4>
                     <ul>
-                        <li>Contribution to the development of innovative features</li>
-                        <li>Improvement of user experience on all platforms</li>
-                        <li>Application performance optimization</li>
-                        <li>Implementation of mobile development best practices</li>
+                        <li>المساهمة في تطوير ميزات مبتكرة</li>
+                        <li>تحسين تجربة المستخدم على جميع المنصات</li>
+                        <li>تحسين أداء التطبيقات</li>
+                        <li>تنفيذ أفضل ممارسات تطوير الهاتف المحمول</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section id="projets" class="section">
-            <h2><i class="fas fa-rocket"></i> Innovative Projects</h2>
+            <h2><i class="fas fa-rocket"></i> مشاريع مبتكرة</h2>
             
-            <!-- Web & Mobile Development -->
+            <!-- تطوير الويب والهاتف المحمول -->
             <div class="project-category">
-                <h3><i class="fas fa-mobile-alt"></i> Web & Mobile Development</h3>
+                <h3><i class="fas fa-mobile-alt"></i> تطوير الويب والهاتف المحمول</h3>
                 
                 <div class="project-item featured">
                     <div class="project-header">
-                        <h4><i class="fas fa-star"></i> AlloPro - Local Services Platform</h4>
+                        <h4><i class="fas fa-star"></i> AlloPro - منصة الخدمات المحلية</h4>
                         <div class="project-badges">
                             <span class="badge primary">Flutter</span>
                             <span class="badge secondary">Firebase</span>
-                            <span class="badge accent">Multi-role</span>
+                            <span class="badge accent">Multi-rôles</span>
                         </div>
                     </div>
-                    <p><strong>Description:</strong> Innovative mobile application facilitating the connection between clients and qualified service providers. Complete platform with subscription system, geolocation, real-time messaging and multilingual support.</p>
+                    <p><strong>الوصف:</strong> تطبيق هاتف محمول مبتكر يسهل الربط بين العملاء ومقدمي الخدمات المؤهلين. منصة شاملة مع نظام اشتراك وموقع جغرافي ومراسلة في الوقت الفعلي ودعم متعدد اللغات.</p>
                     <div class="project-features">
-                        <h5><i class="fas fa-cogs"></i> Key features:</h5>
+                        <h5><i class="fas fa-cogs"></i> الميزات الرئيسية:</h5>
                         <ul>
-                            <li><i class="fas fa-users"></i> Multi-role system (Clients, Providers, Admins)</li>
-                            <li><i class="fas fa-search-location"></i> Geolocated search with advanced filters</li>
-                            <li><i class="fas fa-comments"></i> Real-time messaging with Firebase</li>
-                            <li><i class="fas fa-credit-card"></i> AlloPro+ subscription system (3 plans)</li>
-                            <li><i class="fas fa-globe"></i> Multilingual support (FR, EN, AR) with RTL</li>
-                            <li><i class="fas fa-mobile-alt"></i> Responsive and intuitive interface</li>
+                            <li><i class="fas fa-users"></i> نظام متعدد الأدوار (العملاء، مقدمي الخدمات، المدراء)</li>
+                            <li><i class="fas fa-search-location"></i> البحث الجغرافي مع فلاتر متقدمة</li>
+                            <li><i class="fas fa-comments"></i> المراسلة في الوقت الفعلي مع Firebase</li>
+                            <li><i class="fas fa-credit-card"></i> نظام اشتراك AlloPro+ (3 خطط)</li>
+                            <li><i class="fas fa-globe"></i> دعم متعدد اللغات (FR, EN, AR) مع RTL</li>
+                            <li><i class="fas fa-mobile-alt"></i> واجهة متجاوبة وبديهية</li>
                         </ul>
                     </div>
                     <div class="project-tech">
-                        <h5><i class="fas fa-code"></i> Technologies:</h5>
+                        <h5><i class="fas fa-code"></i> التقنيات:</h5>
                         <p>Flutter • Dart • Firebase (Auth, Firestore, Storage, Messaging) • GetX</p>
                     </div>
                     <div class="project-links">
-                        <h5><i class="fas fa-external-link-alt"></i> Useful links:</h5>
+                        <h5><i class="fas fa-external-link-alt"></i> الروابط المفيدة:</h5>
                         <div class="link-buttons">
                             <a href="https://play.google.com/store/apps/details?id=com.allopro.allopro" target="_blank" class="link-button playstore">
-                                <i class="fab fa-google-play"></i> Download on Play Store
+                                <i class="fab fa-google-play"></i> تحميل من متجر Play
                             </a>
                             <a href="https://youtu.be/XSc0m07hXcM?si=pplgiT2FSJfK-_qj" target="_blank" class="link-button video">
-                                <i class="fab fa-youtube"></i> Watch presentation video
+                                <i class="fab fa-youtube"></i> مشاهدة فيديو العرض
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-item">
-                    <h4><i class="fas fa-project-diagram"></i> Collaborative project management web application</h4>
-                    <p>Collaborative project management platform allowing teams to plan, track and collaborate in real time. Integrates task management system, user roles and collaborative chat.</p>
+                    <h4><i class="fas fa-project-diagram"></i> تطبيق ويب لإدارة المشاريع التعاونية</h4>
+                    <p>منصة إدارة المشاريع التعاونية تسمح للفرق بالتخطيط والمتابعة والتعاون في الوقت الفعلي. يدمج نظام إدارة المهام وأدوار المستخدمين والدردشة التعاونية.</p>
                     <div class="project-tech">
-                        <strong>Technologies:</strong> Vue.js • Django • WebSocket • PostgreSQL
+                        <strong>التقنيات:</strong> Vue.js • Django • WebSocket • PostgreSQL
                     </div>
                 </div>
 
                 <div class="project-item">
-                    <h4><i class="fas fa-pills"></i> ÌleraSure - Access to medicines in Benin</h4>
-                    <p>Innovative web application dedicated to transforming access to medicines in Benin. Online consultation, medicine search by proximity and price, direct online orders.</p>
-                    <p><strong><i class="fas fa-external-link-alt"></i> Demo:</strong> <a href="https://blue-worm-998583.hostingersite.com/">Test the application</a></p>
+                    <h4><i class="fas fa-pills"></i> ÌleraSure - الوصول إلى الأدوية في بنين</h4>
+                    <p>تطبيق ويب مبتكر مخصص لتحويل الوصول إلى الأدوية في بنين. استشارة عبر الإنترنت، البحث عن الأدوية حسب القرب والسعر، طلبات مباشرة عبر الإنترنت.</p>
+                    <p><strong><i class="fas fa-external-link-alt"></i> تجربة:</strong> <a href="https://blue-worm-998583.hostingersite.com/">اختبار التطبيق</a></p>
                     <div class="project-tech">
-                        <strong>Technologies:</strong> Vue.js • Node.js • MySQL
+                        <strong>التقنيات:</strong> Vue.js • Node.js • MySQL
                     </div>
                 </div>
             </div>
 
-            <!-- Artificial Intelligence & Machine Learning -->
+            <!-- الذكاء الاصطناعي والتعلم الآلي -->
             <div class="project-category">
-                <h3><i class="fas fa-brain"></i> Artificial Intelligence & Machine Learning</h3>
+                <h3><i class="fas fa-brain"></i> الذكاء الاصطناعي والتعلم الآلي</h3>
                 
                 <div class="project-item">
-                    <h4><i class="fas fa-robot"></i> Intelligent Robotic Arm</h4>
-                    <p>Design and implementation of an autonomous robotic arm using machine learning algorithms for intelligent sorting of electronic components. Combines computer vision, reinforcement learning and robotic control.</p>
+                    <h4><i class="fas fa-robot"></i> ذراع روبوتي ذكي</h4>
+                    <p>تصميم وتنفيذ ذراع روبوتي مستقل يستخدم خوارزميات التعلم الآلي لفرز مكونات إلكترونية ذكية. يجمع بين رؤية الحاسوب والتعلم المعزز والتحكم الروبوتي.</p>
                     <div class="project-tech">
-                        <strong>Technologies:</strong> Python • OpenCV • TensorFlow • Robotics • Computer Vision
+                        <strong>التقنيات:</strong> Python • OpenCV • TensorFlow • Robotique • Computer Vision
                     </div>
                 </div>
 
                 <div class="project-item">
-                    <h4><i class="fas fa-virus"></i> COVID-19 Prediction Platform</h4>
-                    <p>AI platform capable of using respiratory data to predict whether a patient has COVID-19. Combines medical data processing and machine learning for accurate and fast predictions.</p>
-                    <p><strong><i class="fas fa-external-link-alt"></i> Demo:</strong> <a href="https://moussinou-covid-diagnostics.streamlit.app/">Test the solution</a></p>
-                    <p><strong><i class="fas fa-file-pdf"></i> Documentation:</strong> <a href="https://drive.google.com/file/d/1jl1MJON2KpFDIaJZsnYck7PHzKHaN5Uv/view?usp=sharing">Technical document</a></p>
+                    <h4><i class="fas fa-virus"></i> منصة التنبؤ بـ COVID-19</h4>
+                    <p>منصة ذكاء اصطناعي قادرة على استخدام البيانات التنفسية للتنبؤ بما إذا كان المريض مصاباً بـ COVID-19. تجمع بين معالجة البيانات الطبية والتعلم الآلي للتنبؤات الدقيقة والسريعة.</p>
+                    <p><strong><i class="fas fa-external-link-alt"></i> تجربة:</strong> <a href="https://moussinou-covid-diagnostics.streamlit.app/">اختبار الحل</a></p>
+                    <p><strong><i class="fas fa-file-pdf"></i> الوثائق:</strong> <a href="https://drive.google.com/file/d/1jl1MJON2KpFDIaJZsnYck7PHzKHaN5Uv/view?usp=sharing">الوثيقة التقنية</a></p>
                     <div class="project-tech">
-                        <strong>Technologies:</strong> Python • Scikit-learn • Streamlit • Machine Learning • Data Science
+                        <strong>التقنيات:</strong> Python • Scikit-learn • Streamlit • Machine Learning • Data Science
                     </div>
                 </div>
 
                 <div class="project-item">
-                    <h4><i class="fas fa-chart-line"></i> Customer Churn Prediction</h4>
-                    <p>AI-based platform capable of predicting customer departure or churn for a telecommunications company. Uses advanced machine learning algorithms to analyze customer behaviors and identify risk factors.</p>
-                    <p><strong><i class="fas fa-external-link-alt"></i> Demo:</strong> <a href="https://moussinouchurnpredict.streamlit.app/">Test the solution</a></p>
+                    <h4><i class="fas fa-chart-line"></i> التنبؤ بانسحاب العملاء (Churn Prediction)</h4>
+                    <p>منصة قائمة على الذكاء الاصطناعي قادرة على التنبؤ بمغادرة أو انسحاب عملاء شركة اتصالات. تستخدم خوارزميات التعلم الآلي المتقدمة لتحليل سلوكيات العملاء وتحديد عوامل الخطر.</p>
+                    <p><strong><i class="fas fa-external-link-alt"></i> تجربة:</strong> <a href="https://moussinouchurnpredict.streamlit.app/">اختبار الحل</a></p>
                     <div class="project-tech">
-                        <strong>Technologies:</strong> Python • Pandas • Scikit-learn • Streamlit • Data Analysis
+                        <strong>التقنيات:</strong> Python • Pandas • Scikit-learn • Streamlit • Data Analysis
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="langues" class="section">
-            <h2>Language Skills</h2>
+            <h2>المهارات اللغوية</h2>
             <ul class="languages-list">
-                <li>Dendi (mother tongue)</li>
-                <li>French (fluent)</li>
-                <li>Arabic (fluent)</li>
-                <li>English (professional)</li>
+                <li>دندي (اللغة الأم)</li>
+                <li>الفرنسية (متقن)</li>
+                <li>العربية (متقن)</li>
+                <li>الإنجليزية (مهني)</li>
             </ul>
         </section>
     </main>
@@ -974,10 +974,10 @@
             
             if (language === 'fr') {
                 window.location.href = 'index-fr.html';
-            } else if (language === 'ar') {
-                window.location.href = 'index-ar.html';
+            } else if (language === 'en') {
+                window.location.href = 'index.html';
             } else {
-                // Pour l'anglais, on reste sur la page actuelle (index.html)
+                // Pour l'arabe, on reste sur la page actuelle (index-ar.html)
                 // Pas de redirection nécessaire
             }
         }
