@@ -45,13 +45,24 @@
         }
 
         .profile-pic {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             border: 5px solid var(--primary-color);
             object-fit: cover;
             margin-bottom: 1rem;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        .profile-pic.fade-out {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .profile-pic.fade-in {
+            opacity: 1;
+            transform: scale(1);
         }
 
         h1 {
@@ -123,18 +134,146 @@
 
         .formation-item, .education-item, .project-item {
             margin-bottom: 1.5rem;
-            padding: 1rem;
+            padding: 1.5rem;
             background-color: #f9f9f9;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .formation-item:hover, .education-item:hover, .project-item:hover {
-            background-color: #e9e9e9;
+            background-color: #f0f8ff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .formation-item h3, .education-item h3, .project-item h3, .project-item h4 {
             color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .formation-item p {
+            color: #555;
+            margin-bottom: 1rem;
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        .formation-item ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .formation-item li {
+            padding: 0.6rem 0;
+            border-bottom: 1px solid #e0e0e0;
+            position: relative;
+            padding-left: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .formation-item li:last-child {
+            border-bottom: none;
+        }
+
+        .formation-item li:hover {
+            background-color: #f8f9fa;
+            padding-left: 2rem;
+        }
+
+        .formation-item li::before {
+            content: "▶";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            font-size: 0.8rem;
+        }
+
+        .formation-item em {
+            color: var(--secondary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            background-color: #e8f4fd;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        /* Amélioration spécifique pour les formations */
+        .formation-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .formation-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            opacity: 0.05;
+            border-radius: 50%;
+            transform: translate(30px, -30px);
+        }
+
+        .formation-item h3 {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .formation-item h3::before {
+            content: "🎓";
+            font-size: 1.2rem;
+        }
+
+        .formation-item ul {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .formation-item li {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        .formation-item li:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive pour les formations */
+        @media (max-width: 768px) {
+            .formation-item {
+                padding: 1rem;
+            }
+            
+            .formation-item h3 {
+                font-size: 1.1rem;
+            }
+            
+            .formation-item li {
+                padding: 0.5rem 0;
+                padding-left: 1.2rem;
+            }
+            
+            .formation-item li:hover {
+                padding-left: 1.5rem;
+            }
         }
 
         /* Styles pour les catégories de projets */
@@ -471,13 +610,18 @@
             .contact-info li {
                 flex-basis: 100%;
             }
+            
+            .profile-pic {
+                width: 250px;
+                height: 250px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="msn.png" alt="Moussinou MAMA" class="profile-pic">
+            <img id="profile-image" src="msn.png" alt="Moussinou MAMA" class="profile-pic">
             <h1>Moussinou MAMA</h1>
             <p>Développeur Full Stack | Technicien Reseau | Data Scientist | Spécialiste en IA et Machine Learning</p>
         </div>
@@ -488,7 +632,7 @@
             <h2>Contact</h2>
             <ul class="contact-info">
                 <li><i class="fas fa-envelope"></i> moussinoumama52@gmail.com</li>
-                <li><i class="fas fa-phone"></i> +22995231680 / +22962241874</li>
+                <li><i class="fas fa-phone"></i> +2290195231680 / +2290162241874</li>
                 <li><i class="fas fa-map-marker-alt"></i> Zogbadjè / Abomey Calavi / Bénin</li>
                 <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/moussinou-mama-8b6270284">LinkedIn</a></li>
                 <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/22995231680">WhatsApp</a></li>
@@ -750,5 +894,37 @@
             </ul>
         </section>
     </main>
+
+    <script>
+        // Rotation des images de profil
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileImage = document.getElementById('profile-image');
+            const images = ['msn.png','msn1.jpeg'];
+            let currentImageIndex = 0;
+
+            function switchImage() {
+                // Ajouter l'effet de fade-out
+                profileImage.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    // Changer l'image
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    profileImage.src = images[currentImageIndex];
+                    
+                    // Ajouter l'effet de fade-in
+                    profileImage.classList.remove('fade-out');
+                    profileImage.classList.add('fade-in');
+                    
+                    // Retirer la classe fade-in après l'animation
+                    setTimeout(() => {
+                        profileImage.classList.remove('fade-in');
+                    }, 500);
+                }, 500); // Attendre la fin de l'animation fade-out
+            }
+
+            // Démarrer la rotation toutes les 5 secondes
+            setInterval(switchImage, 5000);
+        });
+    </script>
 </body>
 </html>
