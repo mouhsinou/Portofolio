@@ -1,1169 +1,879 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Moussinou MAMA Msn - Français</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --text-color: #333;
-            --bg-color: #f4f4f4;
-            --card-bg: #fff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: var(--secondary-color);
-            color: #ecf0f1;
-            text-align: center;
-            padding: 4rem 0;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
-
-        .profile-pic {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 5px solid var(--primary-color);
-            object-fit: cover;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-
-        .profile-pic.fade-out {
-            opacity: 0;
-            transform: scale(0.9);
-        }
-
-        .profile-pic.fade-in {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Styles pour le sélecteur de langue */
-        .language-selector {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 10;
-        }
-
-        .language-selector select {
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid var(--primary-color);
-            border-radius: 25px;
-            padding: 8px 15px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--secondary-color);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .language-selector select:hover {
-            background: rgba(255, 255, 255, 1);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        .language-selector select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        .language-selector option {
-            padding: 10px;
-            background: white;
-            color: var(--secondary-color);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        h2 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .section {
-            background-color: var(--card-bg);
-            margin: 2rem 0;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .contact-info li {
-            flex-basis: calc(50% - 5px);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            word-break: break-all;
-            overflow-wrap: break-word;
-        }
-
-        .contact-info li i {
-            margin-right: 10px;
-            color: var(--primary-color);
-            flex-shrink: 0;
-        }
-
-        .contact-info li a {
-            word-break: break-all;
-            overflow-wrap: break-word;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        .skills-list, .languages-list {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .skills-list li, .languages-list li {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 0.5rem 1rem;
-            margin: 0.5rem;
-            border-radius: 20px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .skills-list li:hover, .languages-list li:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        .formation-item, .education-item, .project-item {
-            margin-bottom: 1.5rem;
-            padding: 1.5rem;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            border-left: 4px solid var(--primary-color);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .formation-item:hover, .education-item:hover, .project-item:hover {
-            background-color: #f0f8ff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .formation-item h3, .education-item h3, .project-item h3, .project-item h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .formation-item p {
-            color: #555;
-            margin-bottom: 1rem;
-            font-style: italic;
-            font-size: 1rem;
-        }
-
-        .formation-item ul {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-
-        .formation-item li {
-            padding: 0.6rem 0;
-            border-bottom: 1px solid #e0e0e0;
-            position: relative;
-            padding-left: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .formation-item li:last-child {
-            border-bottom: none;
-        }
-
-        .formation-item li:hover {
-            background-color: #f8f9fa;
-            padding-left: 2rem;
-        }
-
-        .formation-item li::before {
-            content: "▶";
-            color: var(--primary-color);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0.6rem;
-            font-size: 0.8rem;
-        }
-
-        .formation-item em {
-            color: var(--secondary-color);
-            font-weight: 500;
-            font-size: 0.9rem;
-            background-color: #e8f4fd;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-
-        /* Amélioration spécifique pour les formations */
-        .formation-item {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .formation-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            opacity: 0.05;
-            border-radius: 50%;
-            transform: translate(30px, -30px);
-        }
-
-        .formation-item h3 {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .formation-item h3::before {
-            content: "🎓";
-            font-size: 1.2rem;
-        }
-
-        .formation-item ul {
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-            border: 1px solid #e0e0e0;
-        }
-
-        .formation-item li {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #444;
-        }
-
-        .formation-item li:hover {
-            color: var(--primary-color);
-        }
-
-        /* Styles pour les catégories de projets */
-        .project-category {
-            margin-bottom: 3rem;
-        }
-
-        .project-category h3 {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .project-category h3 i {
-            margin-right: 0.5rem;
-        }
-
-        /* Styles pour les projets mis en vedette */
-        .project-item.featured {
-            border: 2px solid var(--primary-color);
-            background: linear-gradient(135deg, #f8f9ff, #ffffff);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-item.featured::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .project-header h4 {
-            flex: 1;
-            margin-right: 1rem;
-        }
-
-        .project-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .badge.primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .badge.secondary {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .badge.accent {
-            background-color: var(--accent-color);
-            color: white;
-        }
-
-        .project-features {
-            margin: 1rem 0;
-            padding: 1rem;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-color);
-        }
-
-        .project-features h5 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .project-features ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .project-features li {
-            padding: 0.3rem 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .project-features li i {
-            color: var(--primary-color);
-            margin-right: 0.5rem;
-            width: 16px;
-        }
-
-        .project-tech {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            background-color: #e8f4fd;
-            border-radius: 6px;
-            border: 1px solid #b3d9ff;
-        }
-
-        .project-tech h5 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .project-tech p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .project-links {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            background-color: #f0f8ff;
-            border-radius: 6px;
-            border: 1px solid #cce7ff;
-        }
-
-        .project-links h5 {
-            color: var(--secondary-color);
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-        }
-
-        .link-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .link-button {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .link-button i {
-            margin-right: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .link-button.playstore {
-            background: linear-gradient(135deg, #01875f, #00a86b);
-            color: white;
-        }
-
-        .link-button.playstore:hover {
-            background: linear-gradient(135deg, #016b4a, #008f5a);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(1, 135, 95, 0.3);
-        }
-
-        .link-button.video {
-            background: linear-gradient(135deg, #ff0000, #cc0000);
-            color: white;
-        }
-
-        .link-button.video:hover {
-            background: linear-gradient(135deg, #e60000, #b30000);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
-        }
-
-        /* Styles pour l'expérience professionnelle */
-        .experience-item {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            border-left: 5px solid var(--primary-color);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .experience-item:hover {
-            background-color: #f0f8ff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .experience-header h3 {
-            flex: 1;
-            margin-right: 1rem;
-            color: var(--primary-color);
-        }
-
-        .experience-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .experience-projects, .experience-skills, .experience-impact {
-            margin: 1.5rem 0;
-            padding: 1rem;
-            background-color: #ffffff;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .experience-projects h4, .experience-skills h4, .experience-impact h4 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .project-detail {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background-color: #f8f9fa;
-            border-radius: 6px;
-            border-left: 3px solid var(--accent-color);
-        }
-
-        .project-detail h5 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .experience-skills ul, .experience-impact ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .experience-skills li, .experience-impact li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: flex-start;
-            border-bottom: 1px solid #f0f0f0;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .experience-skills li:last-child, .experience-impact li:last-child {
-            border-bottom: none;
-        }
-
-        .experience-skills li i, .experience-impact li i {
-            color: var(--primary-color);
-            margin-right: 0.8rem;
-            margin-top: 0.2rem;
-            width: 16px;
-            flex-shrink: 0;
-        }
-
-        .experience-skills li strong, .experience-impact li strong {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .contact-info li {
-                flex-basis: 100%;
-                margin-bottom: 0;
-                padding: 0.8rem;
-                background-color: #f8f9fa;
-                border-radius: 8px;
-                border-left: 4px solid var(--primary-color);
-            }
-
-            .contact-info li i {
-                margin-right: 15px;
-                font-size: 1.1rem;
-            }
-            
-            .profile-pic {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .project-header, .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .project-badges, .experience-badges {
-                margin-top: 0.5rem;
-            }
-
-            .project-category h3 {
-                font-size: 1.3rem;
-                padding: 0.8rem;
-            }
-
-            .experience-item {
-                padding: 1rem;
-            }
-
-            .experience-projects, .experience-skills, .experience-impact {
-                padding: 0.8rem;
-            }
-
-            .experience-skills li, .experience-impact li {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1rem 0;
-                border-bottom: 1px solid #e0e0e0;
-            }
-
-            .experience-skills li i, .experience-impact li i {
-                margin-right: 0;
-                margin-bottom: 0.5rem;
-                font-size: 1.2rem;
-            }
-
-            .experience-skills li strong, .experience-impact li strong {
-                display: block;
-                margin-bottom: 0.3rem;
-                font-size: 1rem;
-            }
-
-            .formation-item {
-                padding: 1rem;
-            }
-            
-            .formation-item h3 {
-                font-size: 1.1rem;
-            }
-            
-            .formation-item li {
-                padding: 0.5rem 0;
-                padding-left: 1.2rem;
-            }
-            
-            .formation-item li:hover {
-                padding-left: 1.5rem;
-            }
-
-            .link-buttons {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-
-            .link-button {
-                justify-content: center;
-                width: 100%;
-            }
-
-            .section {
-                padding: 1.5rem;
-                margin: 1.5rem 0;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Responsive design pour très petits écrans */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 10px;
-            }
-
-            .contact-info li {
-                padding: 0.6rem;
-                font-size: 0.9rem;
-            }
-
-            .experience-skills li, .experience-impact li {
-                padding: 0.8rem 0;
-            }
-
-            .experience-skills li strong, .experience-impact li strong {
-                font-size: 0.9rem;
-            }
-
-            .section {
-                padding: 1rem;
-                margin: 1rem 0;
-            }
-
-            .formation-item, .education-item, .project-item {
-                padding: 0.8rem;
-            }
-
-            .experience-item {
-                padding: 0.8rem;
-            }
-
-            .experience-projects, .experience-skills, .experience-impact {
-                padding: 0.6rem;
-            }
-        }
-    </style>
+    <title>Moussinou MAMA (MSN) | Ingénieur Logiciel Senior & Architecte Systèmes</title>
+    <meta name="description" content="Portfolio de Moussinou MAMA — Senior Software Engineer & Systems Architect. Spécialiste Monorepo, Django REST, Flutter, React, Cloud & IA.">
+    
+    <!-- Open Graph & Social -->
+    <meta property="og:title" content="Moussinou MAMA (MSN) | Senior Software Engineer & Systems Architect">
+    <meta property="og:description" content="Découvrez les projets majeurs de Moussinou MAMA : écosystème distribué Minfo, ISKANE A2S, MaSanté+, plateformes mobiles et IA.">
+    <meta property="og:image" content="msn.png">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <!-- Sélecteur de langue -->
-            <div class="language-selector">
-                <select onchange="changeLanguage()">
-                    <option value="fr" selected>🇫🇷 Français</option>
-                    <option value="ar">🇸🇦 العربية</option>
-                    <option value="en">🇺🇸 English</option>
-                </select>
+
+    <!-- ================= Navigation Header ================= -->
+    <header class="header">
+        <div class="container nav">
+            <a href="#hero" class="nav-brand">
+                <span class="brand-badge">MSN</span>
+                <span>Moussinou <span class="gradient-text">MAMA</span></span>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="#minfo" class="nav-link"><i class="fas fa-crown" style="color: var(--accent-amber);"></i> Minfo</a>
+                <a href="#projets" class="nav-link">Projets Majeurs</a>
+                <a href="#experience" class="nav-link">Parcours</a>
+                <a href="#competences" class="nav-link">Expertise</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Theme Switcher -->
+                <button id="theme-toggle" class="action-btn" title="Changer de thème (Sombre/Clair)" aria-label="Basculer le thème">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+
+                <!-- Language Selector -->
+                <div class="lang-select-wrapper">
+                    <select class="lang-select" onchange="handleLanguageChange(this)">
+                        <option value="fr" selected>🇫🇷 FR</option>
+                        <option value="en">🇺🇸 EN</option>
+                        <option value="ar">🇸🇦 AR</option>
+                    </select>
+                    <i class="fas fa-chevron-down lang-select-arrow"></i>
+                </div>
+
+                <a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1.15rem; font-size: 0.85rem;">
+                    <i class="fas fa-paper-plane"></i> Me Contacter
+                </a>
             </div>
-            
-            <img id="profile-image" src="msn.png" alt="Moussinou MAMA" class="profile-pic">
-            <h1>Moussinou MAMA</h1>
-            <p>Développeur Full Stack | Technicien Reseau | Data Scientist | Spécialiste en IA et Machine Learning</p>
         </div>
     </header>
 
-    <main class="container">
-        <section id="contact" class="section">
-            <h2>Contact</h2>
-            <ul class="contact-info">
-                <li><i class="fas fa-envelope"></i> moussinoumama52@gmail.com</li>
-                <li><i class="fas fa-phone"></i> +2290195231680 / +2290162241874</li>
-                <li><i class="fas fa-map-marker-alt"></i> Zogbadjè / Abomey Calavi / Bénin</li>
-                <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/moussinou-mama-8b6270284">LinkedIn</a></li>
-                <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/22995231680">WhatsApp</a></li>
-            </ul>
-        </section>
+    <!-- ================= Hero Section ================= -->
+    <section id="hero" class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="status-chip">
+                    <span class="status-pulse"></span>
+                    <span>Disponible pour Postes Senior & Rôles Lead / Architecture</span>
+                </div>
 
-        <section id="objectif" class="section">
-            <h2>Objectif professionnel</h2>
-            <p>Développeur passionné et innovant, je cherche à repousser les limites de la technologie en combinant mon expertise en mathématiques, informatique et intelligence artificielle. Mon objectif est de concevoir des solutions technologiques avancées qui répondent aux défis complexes de notre ère numérique. Je vise à contribuer à des projets d'envergure en IA et machine learning, tout en continuant à développer mes compétences dans les domaines émergents de l'informatique.</p>
-        </section>
+                <h1 class="hero-title">
+                    Bâtisseur de <span class="gradient-text">Systèmes Distribués</span> & d'Applications Mobiles Haute Performance.
+                </h1>
 
-        <section id="competences" class="section">
-            <h2>Compétences</h2>
-            <ul class="skills-list">
-                <li>Python</li>
-                <li>JavaScript</li>
-                <li>Développement Web (HTML, CSS, Vuejs, React)</li>
-                <li>Développement Mobile (Flutter)</li>
-                <li>Base de données (SQL, NoSQL)</li>
-                <li>DevOps (Docker, Kubernetes)</li>
-                <li>Cloud Computing (AWS, GCP)</li>
-                <li>Traitement de signal et d'image avec python</li>
-                <li>Analyse de données</li>
-                <li>Machine Learning</li>
-                <li>Algorithmes et structures de données</li>
-                <li>Git et contrôle de version</li>
-            </ul>
-        </section>
+                <p class="hero-subtitle">
+                    Ingénieur logiciel chevronné combinant expertise en mathématiques appliquées, architecture backend distribuée (Django, PostgreSQL, Redis), applications mobiles cross-platform (Flutter) et interfaces web modernes (React 19, TypeScript).
+                </p>
 
-        <section id="formation" class="section">
-            <h2>Formation</h2>
-            <div class="formation-item">
-                <h3>AFRIKDUTECH - Programme DCLIC (OIF)</h3>
-                <p>Formation intensive en Développement Mobile Flutter - Programme DCLIC de l'Organisation Internationale de la Francophonie</p>
-                <ul>
-                    <li>Design mobile avec Figma : conception d'interfaces utilisateur et réalisation de maquettes</li>
-                    <li>FlutterFlow : développement low-code d'applications mobiles</li>
-                    <li>Algorithmie et logique de programmation</li>
-                    <li>APIs et Postman : requêtes (GET, POST, DELETE), tests d'API avec certification officielle</li>
-                    <li>Langage Dart : programmation orientée objet</li>
-                    <li>Flutter : développement d'applications mobiles cross-platform</li>
-                    <li>Projets concrets avec présentation devant jury (toutes les 1-2 semaines)</li>
-                    <li>Conception de CV et lettre de motivation pour insertion professionnelle</li>
-                </ul>
-                <p><em>Décembre 2024 - Avril 2025</em></p>
-            </div>
-            <div class="formation-item">
-                <h3>AFRICA TECHUP TOURS</h3>
-                <p>Formation en DATA / IA avec Spécialisation en DATA INFRASTRUCTURE, DevOps / MLOps et Cloud Computing</p>
-                <ul>
-                    <li>Infrastructure as Code</li>
-                    <li>Conteneurisation avec Docker</li>
-                    <li>Orchestration avec Kubernetes</li>
-                    <li>Cloud platforms (AWS, GCP, Azure)</li>
-                    <li>Deploiement des modèles de ML</li>
-                    <li>Monitoring avec Grafana</li>
-                </ul>
-                <p><em>04/2024 - 09/2024</em></p>
-            </div>
-            <div class="formation-item">
-                <h3>DATA AFRIQUE HUB</h3>
-                <p>Formation complète en Data Science</p>
-                <ul>
-                    <li>Data Engineering: ETL, pipelines de données</li>
-                    <li>Analyse de données avancée</li>
-                    <li>Machine Learning appliqué</li>
-                    <li>Déploiement d'applications data-driven</li>
-                </ul>
-                <p><em>04/2024 - 07/2024</em></p>
-            </div>
-            <div class="formation-item">
-                <h3>BENIN EXCELLENCE (EEIA 2023)</h3>
-                <p>Formation de base en Intelligence Artificielle</p>
-                <ul>
-                    <li>Programmation avancée en Python</li>
-                    <li>Fondamentaux du Machine Learning</li>
-                    <li>Introduction à la Robotique</li>
-                    <li>Projets pratiques en IA</li>
-                </ul>
-                <p><em>17/07/2023 - 12/08/2023</em></p>
-            </div>
-        </section>
+                <div class="hero-actions">
+                    <a href="#minfo" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Explorer l'Écosystème Minfo
+                    </a>
+                    <a href="https://wa.me/22995231680" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp" style="color: var(--accent-emerald);"></i> WhatsApp Direct
+                    </a>
+                    <a href="mailto:moussinoumama52@gmail.com" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Email
+                    </a>
+                </div>
 
-        <section id="education" class="section">
-            <h2>Parcours académique</h2>
-            <div class="education-item">
-                <h3>IFRI-UAC</h3>
-                <p>Master en Systèmes d'Information et Réseaux Informatique</p>
-                <p><em>En cours</em></p>
-            </div>
-            <div class="education-item">
-                <h3>UNSTIM-ABOMEY (FAST-NATI)</h3>
-                <p>Licence en Mathématiques et Informatique</p>
-                <p><em>Obtenu en 2023</em></p>
-            </div>
-            <div class="education-item">
-                <h3>Lycée Mathieu Bouké</h3>
-                <p>Baccalauréat série D (Sciences)</p>
-                <p><em>Obtenu en 2019</em></p>
-            </div>
-        </section>
-
-        <section id="experience" class="section">
-            <h2><i class="fas fa-briefcase"></i> Expérience professionnelle</h2>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3><i class="fas fa-laptop-code"></i> Stage Professionnel - Développeur Mobile</h3>
-                    <div class="experience-badges">
-                        <span class="badge primary">CodeLab</span>
-                        <span class="badge secondary">En cours</span>
+                <!-- Hero Metrics Counter -->
+                <div class="hero-metrics">
+                    <div class="metric-item">
+                        <span class="metric-number gradient-text">30+</span>
+                        <span class="metric-label">Modules Backend (Minfo)</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number gradient-text">17</span>
+                        <span class="metric-label">Langues i18n Déployées</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number gradient-text">130+</span>
+                        <span class="metric-label">Endpoints REST Sécurisés</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number gradient-text">99.9%</span>
+                        <span class="metric-label">Uptime & Robustesse</span>
                     </div>
                 </div>
-                <p><strong>CodeLab</strong> | <em>2 Juin 2025 - Présent</em></p>
-                <p>Stage professionnel en développement mobile où je contribue activement au développement et à l'amélioration d'applications mobiles cross-platform.</p>
-                
-                <div class="experience-projects">
-                    <h4><i class="fas fa-project-diagram"></i> Projets principaux :</h4>
-                    <div class="project-detail">
-                        <h5><i class="fas fa-mobile-alt"></i> Minfo</h5>
-                        <p>Application mobile complète disponible sur <strong>Web</strong>, <strong>Android</strong> et <strong>iOS</strong>. Participation active au développement des nouvelles fonctionnalités, mises à jour et améliorations continues de l'application.</p>
-                        <div class="project-tech">
-                            <strong>Technologies :</strong> Flutter • Dart • Cross-platform • Web • Mobile
+            </div>
+
+            <!-- Terminal Visual Card -->
+            <div class="hero-visual">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar-wrapper">
+                            <img id="hero-avatar" src="msn.png" alt="Moussinou MAMA" class="profile-avatar">
+                        </div>
+                        <div class="profile-meta">
+                            <h3>Moussinou MAMA <span style="font-size: 0.9rem; color: var(--accent-cyan);">(MSN)</span></h3>
+                            <p>Senior Full-Stack & Systems Architect</p>
+                            <span class="tag tag-cyan" style="margin-top: 0.4rem; display: inline-block;">Master SI & Réseaux (IFRI)</span>
                         </div>
                     </div>
-                    <div class="project-detail">
-                        <h5><i class="fas fa-cogs"></i> Autres projets mobiles</h5>
-                        <p>Développement et maintenance d'autres applications mobiles de l'entreprise, contribuant à l'écosystème technologique de CodeLab.</p>
-                    </div>
-                </div>
 
-                <div class="experience-skills">
-                    <h4><i class="fas fa-tools"></i> Compétences acquises :</h4>
-                    <ul>
-                        <li><i class="fas fa-globe"></i> <strong>Internationalisation des applications</strong> - Support multi-langues et adaptation culturelle</li>
-                        <li><i class="fas fa-plug"></i> <strong>Intégration d'API REST</strong> - Connexion et synchronisation avec services backend</li>
-                        <li><i class="fas fa-map-marked-alt"></i> <strong>Google Maps</strong> - Intégration de cartes et géolocalisation</li>
-                        <li><i class="fas fa-mobile-alt"></i> <strong>Flutter avancé</strong> - Maîtrise approfondie du framework et bonnes pratiques</li>
-                        <li><i class="fas fa-code-branch"></i> <strong>Développement cross-platform</strong> - Applications unifiées Web/Android/iOS</li>
-                        <li><i class="fas fa-users"></i> <strong>Travail en équipe</strong> - Collaboration sur projets d'entreprise</li>
-                    </ul>
-                </div>
-
-                <div class="experience-impact">
-                    <h4><i class="fas fa-chart-line"></i> Impact et réalisations :</h4>
-                    <ul>
-                        <li>Contribution au développement de fonctionnalités innovantes</li>
-                        <li>Amélioration de l'expérience utilisateur sur toutes les plateformes</li>
-                        <li>Optimisation des performances des applications</li>
-                        <li>Mise en œuvre de bonnes pratiques de développement mobile</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="projets" class="section">
-            <h2><i class="fas fa-rocket"></i> Projets innovants</h2>
-            
-            <!-- Développement Web & Mobile -->
-            <div class="project-category">
-                <h3><i class="fas fa-mobile-alt"></i> Développement Web & Mobile</h3>
-                
-                <div class="project-item featured">
-                    <div class="project-header">
-                        <h4><i class="fas fa-star"></i> AlloPro - Plateforme de Services Locaux</h4>
-                        <div class="project-badges">
-                            <span class="badge primary">Flutter</span>
-                            <span class="badge secondary">Firebase</span>
-                            <span class="badge accent">Multi-rôles</span>
+                    <!-- Interactive Terminal Simulation -->
+                    <div class="terminal-window">
+                        <div class="terminal-bar">
+                            <span class="t-dot t-red"></span>
+                            <span class="t-dot t-yellow"></span>
+                            <span class="t-dot t-green"></span>
+                            <span class="terminal-title">msn@senior-workstation:~</span>
                         </div>
-                    </div>
-                    <p><strong>Description :</strong> Application mobile innovante facilitant la mise en relation entre clients et prestataires de services qualifiés. Plateforme complète avec système d'abonnement, géolocalisation, messagerie temps réel et support multilingue.</p>
-                    <div class="project-features">
-                        <h5><i class="fas fa-cogs"></i> Fonctionnalités clés :</h5>
-                        <ul>
-                            <li><i class="fas fa-users"></i> Système multi-rôles (Clients, Prestataires, Admins)</li>
-                            <li><i class="fas fa-search-location"></i> Recherche géolocalisée avec filtres avancés</li>
-                            <li><i class="fas fa-comments"></i> Messagerie temps réel avec Firebase</li>
-                            <li><i class="fas fa-bell"></i> Système de notifications push avancé (vues de services, favoris, avis, messages)</li>
-                            <li><i class="fas fa-credit-card"></i> Système d'abonnement AlloPro+ (3 plans)</li>
-                            <li><i class="fas fa-globe"></i> Support multilingue (FR, EN, AR) avec RTL</li>
-                            <li><i class="fas fa-mobile-alt"></i> Interface responsive et intuitive</li>
-                        </ul>
-                    </div>
-                    <div class="project-tech">
-                        <h5><i class="fas fa-code"></i> Technologies :</h5>
-                        <p>Flutter • Dart • Firebase (Auth, Firestore, Storage, Messaging) • GetX</p>
-                    </div>
-                    <div class="project-links">
-                        <h5><i class="fas fa-external-link-alt"></i> Liens utiles :</h5>
-                        <div class="link-buttons">
-                            <a href="https://play.google.com/store/apps/details?id=com.allopro.allopro" target="_blank" class="link-button playstore">
-                                <i class="fab fa-google-play"></i> Télécharger sur Play Store
-                            </a>
-                            <a href="https://youtu.be/XSc0m07hXcM?si=pplgiT2FSJfK-_qj" target="_blank" class="link-button video">
-                                <i class="fab fa-youtube"></i> Voir la vidéo de présentation
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <h4><i class="fas fa-project-diagram"></i> Application web de gestion des projets collaboratifs</h4>
-                    <p>Plateforme de gestion de projets collaboratifs permettant aux équipes de planifier, suivre et collaborer en temps réel. Intègre un système de gestion des tâches, des rôles utilisateurs et un chat collaboratif.</p>
-                    <div class="project-tech">
-                        <strong>Technologies :</strong> Vue.js • Django • WebSocket • PostgreSQL
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <h4><i class="fas fa-pills"></i> ÌleraSure - Accès aux médicaments au Bénin</h4>
-                    <p>Application web innovante dédiée à transformer l'accès aux médicaments au Bénin. Consultation en ligne, recherche de médicaments par proximité et prix, commandes directes en ligne.</p>
-                    <p><strong><i class="fas fa-external-link-alt"></i> Démo :</strong> <a href="https://blue-worm-998583.hostingersite.com/">Tester l'application</a></p>
-                    <div class="project-tech">
-                        <strong>Technologies :</strong> Vue.js • Node.js • MySQL
-                    </div>
-                </div>
-
-                <div class="project-item featured">
-                    <div class="project-header">
-                        <h4><i class="fas fa-car"></i> Parky - Application de Gestion de Parking Intelligente</h4>
-                        <div class="project-badges">
-                            <span class="badge primary">Flutter</span>
-                            <span class="badge secondary">Firebase</span>
-                            <span class="badge accent">Google Maps</span>
-                        </div>
-                    </div>
-                    <p><strong>Description :</strong> Application mobile complète pour la gestion et la réservation de places de parking avec système multi-rôles (Client, Propriétaire, Admin). Intègre géolocalisation temps réel, calendrier interactif, notifications bidirectionnelles et système de paiement avancé.</p>
-                    <div class="project-features">
-                        <h5><i class="fas fa-cogs"></i> Fonctionnalités clés :</h5>
-                        <ul>
-                            <li><i class="fas fa-users"></i> Système multi-rôles (Client, Propriétaire, Admin)</li>
-                            <li><i class="fas fa-map-marked-alt"></i> Intégration Google Maps avec géolocalisation temps réel</li>
-                            <li><i class="fas fa-calendar-alt"></i> Calendrier interactif pour réservations avancées</li>
-                            <li><i class="fas fa-bell"></i> Système de notifications push bidirectionnelles</li>
-                            <li><i class="fas fa-credit-card"></i> Système de paiement flexible (immédiat/à l'arrivée)</li>
-                            <li><i class="fas fa-images"></i> Upload multiple d'images avec Firebase Storage</li>
-                            <li><i class="fas fa-search"></i> Suggestions intelligentes de parking avec filtres</li>
-                            <li><i class="fas fa-chart-line"></i> Dashboard analytique pour propriétaires</li>
-                        </ul>
-                    </div>
-                    <div class="project-tech">
-                        <h5><i class="fas fa-code"></i> Technologies :</h5>
-                        <p>Flutter • Dart • Firebase (Auth, Firestore, Storage, Messaging) • Google Maps API • Geolocator • Google Sign-In • Stripe/PayPal</p>
-                    </div>
-                    <div class="project-links">
-                        <h5><i class="fas fa-external-link-alt"></i> Statut du projet & Test :</h5>
-                        <div class="link-buttons">
-                            <span class="link-button" style="background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; cursor: default;">
-                                <i class="fas fa-code"></i> En Développement
-                            </span>
-                            <a href="https://drive.google.com/file/d/1ZduVRKx2NIhzlLoLQtLeKL4T0wroVE0w/view?usp=sharing" target="_blank" class="link-button" style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white;">
-                                <i class="fas fa-download"></i> Télécharger APK
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item featured">
-                    <div class="project-header">
-                        <h4><i class="fas fa-shopping-cart"></i> ShopEasy - Application E-commerce Moderne</h4>
-                        <div class="project-badges">
-                            <span class="badge primary">Flutter</span>
-                            <span class="badge secondary">GetX</span>
-                            <span class="badge accent">Multi-Plateforme</span>
-                        </div>
-                    </div>
-                    <p><strong>Description :</strong> Application e-commerce complète multi-plateforme avec UI/UX moderne, support multi-langues et tableau de bord administrateur complet. Intègre 30+ produits dans 8 catégories avec gestion avancée du panier, suivi des commandes et design responsive.</p>
-                    <div class="project-features">
-                        <h5><i class="fas fa-cogs"></i> Fonctionnalités clés :</h5>
-                        <ul>
-                            <li><i class="fas fa-mobile-alt"></i> Multi-plateforme (Android, iOS, Web, Desktop)</li>
-                            <li><i class="fas fa-shopping-bag"></i> Catalogue complet avec 30+ produits dans 8 catégories</li>
-                            <li><i class="fas fa-cart-plus"></i> Gestion avancée du panier avec variantes (couleur, stockage)</li>
-                            <li><i class="fas fa-clipboard-list"></i> Suivi des commandes avec mises à jour de statut</li>
-                            <li><i class="fas fa-palette"></i> Thème adaptatif sombre/clair avec persistance</li>
-                            <li><i class="fas fa-globe"></i> Support de 12 langues (EN, FR, ES, DE, IT, PT, RU, CN, JP, KR, AR, HI)</li>
-                            <li><i class="fas fa-comments"></i> Système de chat intégré avec support admin</li>
-                            <li><i class="fas fa-chart-bar"></i> Tableau de bord admin complet avec analytics</li>
-                            <li><i class="fas fa-file-pdf"></i> Génération et téléchargement de reçus PDF</li>
-                            <li><i class="fas fa-search"></i> Recherche de produits et filtrage par catégorie</li>
-                        </ul>
-                    </div>
-                    <div class="project-tech">
-                        <h5><i class="fas fa-code"></i> Technologies :</h5>
-                        <p>Flutter • Dart • GetX (Gestion d'état, Navigation) • Hive (Base de données locale) • SharedPreferences • Google Nav Bar • Intl (Internationalisation) • Package Info Plus</p>
-                    </div>
-                    <div class="project-links">
-                        <h5><i class="fas fa-external-link-alt"></i> Statut du projet & Test :</h5>
-                        <div class="link-buttons">
-                            <span class="link-button" style="background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; cursor: default;">
-                                <i class="fas fa-code"></i> En Développement
-                            </span>
-                            <a href="https://drive.google.com/file/d/YOUR_SHOPEASY_APK_ID/view?usp=sharing" target="_blank" class="link-button" style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white;">
-                                <i class="fas fa-download"></i> Télécharger APK
-                            </a>
+                        <div class="terminal-body">
+                            <div><span class="t-prompt">$</span> <span id="terminal-cmd" class="t-cmd"></span><span class="t-cursor"></span></div>
+                            <pre id="terminal-out" class="t-out" style="margin-top: 0.6rem; font-family: inherit; font-size: inherit; white-space: pre-wrap;"></pre>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Intelligence Artificielle & Machine Learning -->
-            <div class="project-category">
-                <h3><i class="fas fa-brain"></i> Intelligence Artificielle & Machine Learning</h3>
-                
-                <div class="project-item">
-                    <h4><i class="fas fa-robot"></i> Bras Robotique Intelligent</h4>
-                    <p>Conception et implémentation d'un bras robotique autonome utilisant des algorithmes de machine learning pour le tri intelligent de composants électroniques. Combine vision par ordinateur, apprentissage par renforcement et contrôle robotique.</p>
-                    <div class="project-tech">
-                        <strong>Technologies :</strong> Python • OpenCV • TensorFlow • Robotique • Computer Vision
+    <!-- ================= FLAGSHIP SHOWCASE: MINFO ================= -->
+    <section id="minfo" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-crown"></i> Projet Phare & Écosystème Global</span>
+                <h2 class="section-title">Minfo : Plateforme AudioQR & QR Commerce</h2>
+                <p class="section-desc">
+                    Transformation d'objets physiques en expériences digitales interactives et parcours de conversion instantanés via des QR codes dynamiques et des signatures acoustiques propriétaires.
+                </p>
+            </div>
+
+            <div class="flagship-card">
+                <div class="flagship-banner">
+                    <div>
+                        <div class="flagship-badge">
+                            <i class="fas fa-microchip"></i> Monorepo Distribué & Polyglotte
+                        </div>
+                        <h3 class="flagship-title">Écosystème Minfo de Bout en Bout</h3>
+                        <p class="flagship-lead">
+                            Conception et déploiement d'une plateforme unifiée comprenant une API REST Django, une SPA créateur React 19, une application mobile Flutter WebRTC/AudioQR et une application embarquée Shopify Polaris.
+                        </p>
                     </div>
+                    <button onclick="openCaseStudy('minfo')" class="btn btn-primary">
+                        <i class="fas fa-search-plus"></i> Consulter l'Étude d'Architecture
+                    </button>
                 </div>
 
-                <div class="project-item">
-                    <h4><i class="fas fa-virus"></i> Plateforme de prédiction COVID-19</h4>
-                    <p>Plateforme d'IA capable d'utiliser des données respiratoires pour prédire si un patient est atteint du COVID-19. Combine traitement de données médicales et apprentissage automatique pour des prédictions précises et rapides.</p>
-                    <p><strong><i class="fas fa-external-link-alt"></i> Démo :</strong> <a href="https://moussinou-covid-diagnostics.streamlit.app/">Tester la solution</a></p>
-                    <p><strong><i class="fas fa-file-pdf"></i> Documentation :</strong> <a href="https://drive.google.com/file/d/1jl1MJON2KpFDIaJZsnYck7PHzKHaN5Uv/view?usp=sharing">Document technique</a></p>
-                    <div class="project-tech">
-                        <strong>Technologies :</strong> Python • Scikit-learn • Streamlit • Machine Learning • Data Science
-                    </div>
-                </div>
+                <div class="flagship-body">
+                    <!-- 4 Architectural Pillars -->
+                    <div class="arch-grid">
+                        <!-- Pillar 1: Backend -->
+                        <div class="arch-pillar">
+                            <div class="pillar-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h4>1. Backend Django REST</h4>
+                            <span class="repo-slug">github.com/codelab-bj/minfo-v2-backend</span>
+                            <p>API REST complète (30+ modules métier : campagnes, smartlinks, studio builder, live events, bot IA, Apple/Google Wallet, WebSockets).</p>
+                            <div class="pillar-tech">
+                                <span class="tag tag-cyan">Django 5</span>
+                                <span class="tag">PostgreSQL</span>
+                                <span class="tag">Redis</span>
+                                <span class="tag">Nginx / VPS</span>
+                            </div>
+                        </div>
 
-                <div class="project-item">
-                    <h4><i class="fas fa-chart-line"></i> Prédiction de désabonnement clients (Churn Prediction)</h4>
-                    <p>Plateforme basée sur l'IA capable de prédire le départ ou désabonnement des clients d'une entreprise de télécommunications. Utilise des algorithmes de machine learning avancés pour analyser les comportements et identifier les facteurs de risque.</p>
-                    <p><strong><i class="fas fa-external-link-alt"></i> Démo :</strong> <a href="https://moussinouchurnpredict.streamlit.app/">Tester la solution</a></p>
-                    <div class="project-tech">
-                        <strong>Technologies :</strong> Python • Pandas • Scikit-learn • Streamlit • Data Analysis
+                        <!-- Pillar 2: Web SPA -->
+                        <div class="arch-pillar">
+                            <div class="pillar-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <h4>2. Web App React 19</h4>
+                            <span class="repo-slug">github.com/codelab-bj/minfo-v2-web</span>
+                            <p>Tableau de bord créateur de campagne avec éditeur drag & drop, wizard interactif, gestion de thèmes, rich text TipTap et télémétrie PostHog.</p>
+                            <div class="pillar-tech">
+                                <span class="tag tag-cyan">React 19</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">Vite</span>
+                                <span class="tag tag-emerald">17 Langues</span>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 3: Flutter Mobile -->
+                        <div class="arch-pillar">
+                            <div class="pillar-icon">
+                                <i class="fas fa-mobile-screen"></i>
+                            </div>
+                            <h4>3. Mobile App Flutter</h4>
+                            <span class="repo-slug">github.com/codelab-bj/minfo-v2-flutter</span>
+                            <p>Application cross-platform (Android, iOS, Web) pour le scan QR ultra-rapide et l'identification des signatures acoustiques AudioQR en direct.</p>
+                            <div class="pillar-tech">
+                                <span class="tag tag-purple">Flutter 3.x</span>
+                                <span class="tag">Dart</span>
+                                <span class="tag">WebRTC</span>
+                                <span class="tag">AudioQR SDK</span>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 4: Shopify Embedded -->
+                        <div class="arch-pillar">
+                            <div class="pillar-icon">
+                                <i class="fab fa-shopify"></i>
+                            </div>
+                            <h4>4. Shopify App Marchand</h4>
+                            <span class="repo-slug">github.com/rstorti/minfo-shopify-dash</span>
+                            <p>Application intégrée dans l'admin Shopify permettant aux e-commerçants de concevoir des campagnes AudioQR associées à leurs produits.</p>
+                            <div class="pillar-tech">
+                                <span class="tag tag-emerald">Shopify Polaris</span>
+                                <span class="tag">App Bridge</span>
+                                <span class="tag">React 18</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Flagship Engineering Highlights -->
+                    <div class="flagship-highlights">
+                        <div class="hl-column">
+                            <h5><i class="fas fa-shield-halved"></i> Contrats API & Résilience Système</h5>
+                            <ul class="hl-list">
+                                <li><i class="fas fa-check"></i> Spécification OpenAPI formelle (`@minfo/api-contract`) servant de source de vérité unique pour les 4 applications.</li>
+                                <li><i class="fas fa-check"></i> Authentification unifiée et sécurisée par JWT, échange de tokens marchands Shopify et synchronisation en temps réel via WebSockets.</li>
+                                <li><i class="fas fa-check"></i> Déploiement automatisé avec reverse proxy Nginx, services systemd gunicorn et cache Redis distribué.</li>
+                            </ul>
+                        </div>
+                        <div class="hl-column">
+                            <h5><i class="fas fa-cubes"></i> Packages Partagés & Code Sharing</h5>
+                            <ul class="hl-list">
+                                <li><i class="fas fa-check"></i> <strong>@minfo/studio-ui</strong> : Bibliothèque de composants React partagés entre l'application Web et le Dashboard Shopify.</li>
+                                <li><i class="fas fa-check"></i> <strong>@minfo/minfo_sdk</strong> : Moteur Dart propriétaire de décodage des fréquences audio (AudioQR).</li>
+                                <li><i class="fas fa-check"></i> Support complet de 17 langues avec gestion dynamique des directions d'écriture LTR et RTL.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="langues" class="section">
-            <h2>Compétences linguistiques</h2>
-            <ul class="languages-list">
-                <li>Dendi (langue maternelle)</li>
-                <li>Français (courant)</li>
-                <li>Arabe (courant)</li>
-                <li>Anglais (professionnel)</li>
-            </ul>
-        </section>
-    </main>
+    <!-- ================= PROJETS MAJEURS ================= -->
+    <section id="projets" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-layer-group"></i> Portfolio Réalisations</span>
+                <h2 class="section-title">Projets d'Ingénierie & Systèmes Conçus</h2>
+                <p class="section-desc">
+                    Applications d'entreprise, architectures de données, plateformes mobiles en production et modèles de machine learning appliqués.
+                </p>
+            </div>
 
-    <script>
-        // Rotation des images de profil
-        document.addEventListener('DOMContentLoaded', function() {
-            const profileImage = document.getElementById('profile-image');
-            const images = ['msn.png','msn1.jpeg'];
-            let currentImageIndex = 0;
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">Tous les Projets</button>
+                <button class="filter-btn" data-filter="distributed">Systèmes Distribués</button>
+                <button class="filter-btn" data-filter="cloud">Full-Stack & Cloud</button>
+                <button class="filter-btn" data-filter="mobile">Mobile & Cross-Platform</button>
+                <button class="filter-btn" data-filter="ai">IA & Data Science</button>
+            </div>
 
-            function switchImage() {
-                // Ajouter l'effet de fade-out
-                profileImage.classList.add('fade-out');
-                
-                setTimeout(() => {
-                    // Changer l'image
-                    currentImageIndex = (currentImageIndex + 1) % images.length;
-                    profileImage.src = images[currentImageIndex];
-                    
-                    // Ajouter l'effet de fade-in
-                    profileImage.classList.remove('fade-out');
-                    profileImage.classList.add('fade-in');
-                    
-                    // Retirer la classe fade-in après l'animation
-                    setTimeout(() => {
-                        profileImage.classList.remove('fade-in');
-                    }, 500);
-                }, 500); // Attendre la fin de l'animation fade-out
-            }
+            <!-- Grid of Projects -->
+            <div class="projects-grid">
 
-            // Démarrer la rotation toutes les 5 secondes
-            setInterval(switchImage, 5000);
-        });
+                <!-- 1. ISKANE A2S (Featured) -->
+                <div class="project-card featured" data-category="cloud">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-university"></i> Plateforme Universitaire</span>
+                            <div class="project-links">
+                                <button onclick="openCaseStudy('iskane')" class="icon-link" title="Consulter l'étude de cas">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">ISKANE A2S — Système d'Admission & Suivi Étudiant</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            Application web full-stack orchestrant l'intégralité du cycle de concours pour le Foyer Universitaire Islamique du Bénin : constitution de dossier en 6 étapes, épreuves de QCM en ligne avec système anti-triche actif (détection de perte de focus), notation des jurys oraux et génération dynamique de rapports PDF officiels.
+                        </p>
+                        <div class="project-key-stats">
+                            <div class="stat-item">
+                                <span class="stat-val">130+</span>
+                                <span class="stat-desc">Endpoints API REST</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-val">5 Rôles</span>
+                                <span class="stat-desc">Modèle RBAC Avancé</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-val">Anti-Triche</span>
+                                <span class="stat-desc">Focus Loss Detection</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-val">PWA</span>
+                                <span class="stat-desc">Offline First FR/AR</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-cyan">Django 5</span>
+                            <span class="tag">React 18 PWA</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">ReportLab PDF</span>
+                            <span class="tag">Railway & Vercel</span>
+                        </div>
+                        <button onclick="openCaseStudy('iskane')" class="btn-details">
+                            Détails de l'Architecture <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
 
-        // Fonction pour changer la langue
-        function changeLanguage() {
-            const select = document.querySelector('.language-selector select');
-            const language = select.value;
-            
-            if (language === 'ar') {
-                window.location.href = 'index-ar.html';
-            } else if (language === 'en') {
-                window.location.href = 'index.html';
-            } else {
-                // Pour le français, on reste sur la page actuelle (index-fr.html)
-                // Pas de redirection nécessaire
-            }
-        }
-    </script>
+                <!-- 2. MaSanté+ -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-heart-pulse"></i> HealthTech Mobile</span>
+                            <div class="project-links">
+                                <button onclick="openCaseStudy('masante')" class="icon-link" title="Consulter">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">MaSanté+ — Santé Mobile</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            Monorepo Flutter + Django REST connectant patients, praticiens et administrateurs. Dossier médical chiffré, prise de rendez-vous avec notifications push temps réel (FCM) et 39+ tests unitaires.
+                        </p>
+                        <div class="project-key-stats">
+                            <div class="stat-item">
+                                <span class="stat-val">39+</span>
+                                <span class="stat-desc">Tests Unitaires</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-val">Riverpod</span>
+                                <span class="stat-desc">State Architecture</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-purple">Flutter 3.x</span>
+                            <span class="tag">Django DRF</span>
+                            <span class="tag">Firebase FCM</span>
+                        </div>
+                        <button onclick="openCaseStudy('masante')" class="btn-details">
+                            Voir <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3. AlloPro -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fab fa-google-play"></i> En Production</span>
+                            <div class="project-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.allopro.allopro" target="_blank" class="icon-link" title="Play Store">
+                                    <i class="fab fa-google-play"></i>
+                                </a>
+                                <button onclick="openCaseStudy('allopro')" class="icon-link" title="Consulter">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">AlloPro — Services Locaux</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            Application mobile de mise en relation entre clients et artisans certifiés. Système d'abonnements AlloPro+, messagerie temps réel et géolocalisation.
+                        </p>
+                        <div class="project-key-stats">
+                            <div class="stat-item">
+                                <span class="stat-val">Play Store</span>
+                                <span class="stat-desc">Live</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-val">Firestore</span>
+                                <span class="stat-desc">Temps Réel</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-purple">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">GetX</span>
+                            <span class="tag">Stripe</span>
+                        </div>
+                        <button onclick="openCaseStudy('allopro')" class="btn-details">
+                            Voir <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 4. Parky -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-car"></i> Smart Parking</span>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/file/d/1ZduVRKx2NIhzlLoLQtLeKL4T0wroVE0w/view?usp=sharing" target="_blank" class="icon-link" title="APK">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button onclick="openCaseStudy('parky')" class="icon-link" title="Consulter">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Parky — Parking Intelligent</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            Réservation et gestion de places de parking avec géolocalisation GPS en temps réel sur Google Maps, calendrier interactif et tableau de bord propriétaire.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-purple">Flutter</span>
+                            <span class="tag">Google Maps API</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                        <button onclick="openCaseStudy('parky')" class="btn-details">
+                            Voir <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 5. ShopEasy -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-cart-shopping"></i> E-Commerce</span>
+                            <div class="project-links">
+                                <button onclick="openCaseStudy('shopeasy')" class="icon-link" title="Consulter">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">ShopEasy — Boutique Multi-OS</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            Application e-commerce multi-plateforme avec persistance locale ultrarapide Hive NoSQL, internationalisation en 12 langues et génération de reçus PDF.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-purple">Flutter</span>
+                            <span class="tag">Hive NoSQL</span>
+                            <span class="tag">12 Langues</span>
+                        </div>
+                        <button onclick="openCaseStudy('shopeasy')" class="btn-details">
+                            Voir <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 6. Diagnostic COVID-19 IA -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-brain"></i> Machine Learning</span>
+                            <div class="project-links">
+                                <a href="https://moussinou-covid-diagnostics.streamlit.app/" target="_blank" class="icon-link" title="Démo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button onclick="openCaseStudy('covid19')" class="icon-link" title="Consulter">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Diagnostic COVID-19 Prédictif</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            Modèle de classification entraîné sur biomarqueurs respiratoires pour l'aide au diagnostic rapide. Déployé en production avec interface médicale Streamlit.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-cyan">Python</span>
+                            <span class="tag">Scikit-Learn</span>
+                            <span class="tag">Streamlit</span>
+                        </div>
+                        <button onclick="openCaseStudy('covid19')" class="btn-details">
+                            Voir <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 7. Churn Prediction -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-chart-line"></i> Data Science</span>
+                            <div class="project-links">
+                                <a href="https://moussinouchurnpredict.streamlit.app/" target="_blank" class="icon-link" title="Démo">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button onclick="openCaseStudy('churn')" class="icon-link" title="Consulter">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Prédiction de Churn Télécom</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            Modélisation prédictive de l'attrition client en télécommunications. Analyse des corrélations de consommation et dashboard interactif d'aide à la décision.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-cyan">Python</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">Machine Learning</span>
+                        </div>
+                        <button onclick="openCaseStudy('churn')" class="btn-details">
+                            Voir <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 8. Bras Robotique Autonome -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-robot"></i> Robotique & Vision</span>
+                            <div class="project-links">
+                                <button onclick="openCaseStudy('robotics')" class="icon-link" title="Consulter">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Bras Robotique Autonome</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            Bras robotique intelligent combinant vision par ordinateur (OpenCV) et réseaux neuronaux (TensorFlow) pour la détection spatiale et le tri automatique de pièces.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-cyan">OpenCV</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">Robotique</span>
+                        </div>
+                        <button onclick="openCaseStudy('robotics')" class="btn-details">
+                            Voir <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= EXPÉRIENCE & FORMATION ================= -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-timeline"></i> Carrière & Qualifications</span>
+                <h2 class="section-title">Parcours Professionnel & Académique</h2>
+                <p class="section-desc">
+                    Une formation mathématique et informatique de pointe combinée à des réalisations concrètes en ingénierie logicielle d'entreprise.
+                </p>
+            </div>
+
+            <div class="experience-grid">
+                <!-- Expérience Professionnelle -->
+                <div class="timeline-block">
+                    <h3 class="timeline-title"><i class="fas fa-briefcase" style="color: var(--accent-cyan);"></i> Expérience Professionnelle</h3>
+                    <div class="timeline-items">
+                        <div class="t-item">
+                            <span class="t-item-dot"></span>
+                            <div class="t-item-period">Juin 2025 — Présent</div>
+                            <h4>Ingénieur Logiciel & Développeur Mobile Senior</h4>
+                            <div class="institution">CodeLab | Bénin & International</div>
+                            <p>
+                                Responsable du développement de l'écosystème <strong>Minfo</strong> (Web, Mobile Flutter, Backend Django et App Shopify). Pilotage des choix d'architecture logicielle, intégration des SDKs audio propriétaire, conception des contrats OpenAPI et déploiement continu sur serveurs dédiés Nginx/PostgreSQL.
+                            </p>
+                            <div class="pillar-tech">
+                                <span class="tag tag-cyan">Minfo Lead</span>
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Django DRF</span>
+                                <span class="tag">Shopify App Bridge</span>
+                            </div>
+                        </div>
+
+                        <div class="t-item">
+                            <span class="t-item-dot"></span>
+                            <div class="t-item-period">2024 — 2025</div>
+                            <h4>Architecte Full-Stack Indépendant</h4>
+                            <div class="institution">Projets Institutionnels & Entreprises</div>
+                            <p>
+                                Conception complète et livraison en production de la plateforme d'admission <strong>ISKANE A2S</strong> (Django + React PWA), de l'application de santé <strong>MaSanté+</strong> et de solutions e-commerce et mobilité déployées sur les stores.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parcours Académique & Certifications -->
+                <div class="timeline-block">
+                    <h3 class="timeline-title"><i class="fas fa-graduation-cap" style="color: var(--accent-indigo);"></i> Parcours Académique & Spécialisations</h3>
+                    <div class="timeline-items">
+                        <div class="t-item academic">
+                            <span class="t-item-dot"></span>
+                            <div class="t-item-period">En cours</div>
+                            <h4>Master en Systèmes d'Information et Réseaux</h4>
+                            <div class="institution">IFRI — Université d'Abomey-Calavi (UAC)</div>
+                            <p>Architecture des systèmes d'information, haute disponibilité, cybersécurité, réseaux avancés et distribution de charges.</p>
+                        </div>
+
+                        <div class="t-item academic">
+                            <span class="t-item-dot"></span>
+                            <div class="t-item-period">2020 — 2023</div>
+                            <h4>Licence en Mathématiques et Informatique</h4>
+                            <div class="institution">UNSTIM-Abomey (FAST-NATI)</div>
+                            <p>Solide formation théorique : analyse numérique, algèbre linéaire, probabilités, algorithmie avancée et structures de données.</p>
+                        </div>
+
+                        <div class="t-item academic">
+                            <span class="t-item-dot"></span>
+                            <div class="t-item-period">2024 — 2025</div>
+                            <h4>Formations d'Élite & Bootcamps Certifiés</h4>
+                            <div class="institution">DCLIC (OIF) • Africa TechUp • Data Afrique Hub • EEIA</div>
+                            <p>
+                                <strong>AFRIKDUTECH (DCLIC - OIF)</strong> : Spécialisation Flutter & APIs.<br>
+                                <strong>Africa TechUp Tours</strong> : Data Infrastructure, DevOps (Docker, Kubernetes, Cloud).<br>
+                                <strong>Bénin Excellence (EEIA)</strong> : Intelligence Artificielle & Robotique.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MATRICE DE COMPÉTENCES ================= -->
+    <section id="competences" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-tools"></i> Matrice Technique</span>
+                <h2 class="section-title">Compétences d'Ingénierie</h2>
+                <p class="section-desc">
+                    Maîtrise polyglotte couvrant l'intégralité du cycle de vie logiciel, du schéma de base de données jusqu'à l'expérience utilisateur mobile.
+                </p>
+            </div>
+
+            <div class="skills-container">
+                <!-- 1. Backend & Architecture -->
+                <div class="skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-server"></i></div>
+                        <h4>Backend & Systèmes</h4>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="skill-chip">Python</span>
+                        <span class="skill-chip">Django 5</span>
+                        <span class="skill-chip">Django REST (DRF)</span>
+                        <span class="skill-chip">PostgreSQL</span>
+                        <span class="skill-chip">Redis</span>
+                        <span class="skill-chip">WebSockets</span>
+                        <span class="skill-chip">OpenAPI / Swagger</span>
+                        <span class="skill-chip">Pytest (TDD)</span>
+                        <span class="skill-chip">JWT & RBAC</span>
+                        <span class="skill-chip">Node.js</span>
+                    </div>
+                </div>
+
+                <!-- 2. Mobile & Cross-Platform -->
+                <div class="skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-mobile-screen"></i></div>
+                        <h4>Mobile & Cross-Platform</h4>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="skill-chip">Flutter</span>
+                        <span class="skill-chip">Dart</span>
+                        <span class="skill-chip">Riverpod</span>
+                        <span class="skill-chip">GetX</span>
+                        <span class="skill-chip">WebRTC</span>
+                        <span class="skill-chip">Google Maps API</span>
+                        <span class="skill-chip">Hive DB</span>
+                        <span class="skill-chip">Dio Networking</span>
+                        <span class="skill-chip">Push FCM</span>
+                        <span class="skill-chip">AudioQR SDK</span>
+                    </div>
+                </div>
+
+                <!-- 3. Frontend & Écosystème Web -->
+                <div class="skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h4>Frontend Moderne</h4>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="skill-chip">React 18 / 19</span>
+                        <span class="skill-chip">TypeScript</span>
+                        <span class="skill-chip">Vite</span>
+                        <span class="skill-chip">Shopify App Bridge</span>
+                        <span class="skill-chip">Shopify Polaris</span>
+                        <span class="skill-chip">Tailwind CSS</span>
+                        <span class="skill-chip">i18next (FR/EN/AR RTL)</span>
+                        <span class="skill-chip">TipTap Rich Text</span>
+                        <span class="skill-chip">Zustand</span>
+                        <span class="skill-chip">PWA & Workbox</span>
+                    </div>
+                </div>
+
+                <!-- 4. DevOps, Cloud & IA -->
+                <div class="skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-cloud-bolt"></i></div>
+                        <h4>DevOps, Cloud & IA</h4>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="skill-chip">Docker</span>
+                        <span class="skill-chip">Kubernetes</span>
+                        <span class="skill-chip">Nginx Reverse Proxy</span>
+                        <span class="skill-chip">Ubuntu VPS / Systemd</span>
+                        <span class="skill-chip">Railway & Vercel</span>
+                        <span class="skill-chip">Scikit-Learn</span>
+                        <span class="skill-chip">TensorFlow & OpenCV</span>
+                        <span class="skill-chip">Streamlit</span>
+                        <span class="skill-chip">Pandas & NumPy</span>
+                        <span class="skill-chip">Git & CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT & CALL TO ACTION ================= -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-card">
+                <div class="contact-grid">
+                    <div class="contact-text-col">
+                        <span class="section-tag"><i class="fas fa-handshake"></i> Collaborons Ensemble</span>
+                        <h2 class="section-title" style="margin-bottom: 1rem;">Donnons Vie à vos Projets les Plus Ambitieux</h2>
+                        <p class="section-desc">
+                            Que ce soit pour concevoir une architecture distribuée, diriger le développement d'une application mobile d'envergure ou rejoindre votre équipe en tant que Senior Software Engineer / Tech Lead.
+                        </p>
+
+                        <div class="contact-info-list">
+                            <div class="contact-row">
+                                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="contact-text">
+                                    <span class="contact-label">Email Professionnel</span>
+                                    <a href="mailto:moussinoumama52@gmail.com" class="contact-val">moussinoumama52@gmail.com</a>
+                                </div>
+                                <button onclick="copyToClipboard('moussinoumama52@gmail.com', this)" class="copy-btn" title="Copier l'email">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+
+                            <div class="contact-row">
+                                <div class="contact-icon" style="color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1);"><i class="fab fa-whatsapp"></i></div>
+                                <div class="contact-text">
+                                    <span class="contact-label">WhatsApp & Téléphone</span>
+                                    <a href="https://wa.me/22995231680" target="_blank" class="contact-val">+229 01 95 23 16 80 / +229 01 62 24 18 74</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-row">
+                                <div class="contact-icon" style="color: var(--accent-blue); background: rgba(59, 130, 246, 0.1);"><i class="fab fa-linkedin"></i></div>
+                                <div class="contact-text">
+                                    <span class="contact-label">Profil LinkedIn</span>
+                                    <a href="https://www.linkedin.com/in/moussinou-mama-8b6270284" target="_blank" class="contact-val">linkedin.com/in/moussinou-mama-8b6270284</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-row">
+                                <div class="contact-icon" style="color: var(--text-primary); background: rgba(255, 255, 255, 0.08);"><i class="fab fa-github"></i></div>
+                                <div class="contact-text">
+                                    <span class="contact-label">Profil GitHub</span>
+                                    <a href="https://github.com/mouhsinou" target="_blank" class="contact-val">github.com/mouhsinou</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Message Form -->
+                    <div class="quick-connect-form">
+                        <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1.25rem;">
+                            <i class="fas fa-paper-plane" style="color: var(--accent-cyan);"></i> Envoyer un Message Direct
+                        </h4>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label class="form-label">Votre Nom / Entreprise</label>
+                                <input type="text" class="form-input" placeholder="ex: Jean Dupont / Tech Corp" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Votre Adresse Email</label>
+                                <input type="email" class="form-input" placeholder="ex: contact@entreprise.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Objet / Sujet de la Mission</label>
+                                <input type="text" class="form-input" placeholder="ex: Opportunité Senior Engineer / Lead Flutter" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-textarea" rows="4" placeholder="Décrivez succinctement votre besoin ou projet..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Transmettre le Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <p style="font-weight: 600; color: var(--text-primary);">Moussinou MAMA (MSN)</p>
+                <p style="font-size: 0.85rem;">Senior Software Engineer & Systems Architect • Abomey-Calavi, Bénin</p>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/mouhsinou" target="_blank" class="action-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/moussinou-mama-8b6270284" target="_blank" class="action-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/22995231680" target="_blank" class="action-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:moussinoumama52@gmail.com" class="action-btn" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <p style="font-size: 0.8rem;">
+                &copy; 2026 Moussinou MAMA. Conçu selon les standards d'ingénierie logicielle d'élite.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ================= CASE STUDY MODAL ================= -->
+    <div id="case-study-modal" class="modal-backdrop">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <h3 id="modal-project-title" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.3rem;"></h3>
+                    <p id="modal-project-subtitle" style="font-size: 0.95rem; color: var(--text-secondary);"></p>
+                </div>
+                <button onclick="closeCaseStudy()" class="modal-close-btn" title="Fermer">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modal-project-body" class="modal-body">
+                <!-- Dynamically injected via scripts.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts Engine -->
+    <script src="scripts.js"></script>
 </body>
 </html>

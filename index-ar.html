@@ -1,1169 +1,829 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>موسينو ماما - مطور Full Stack | عالم بيانات | متخصص في الذكاء الاصطناعي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --text-color: #333;
-            --bg-color: #f4f4f4;
-            --card-bg: #fff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: var(--secondary-color);
-            color: #ecf0f1;
-            text-align: center;
-            padding: 4rem 0;
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
-
-        .profile-pic {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            border: 5px solid var(--primary-color);
-            object-fit: cover;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-
-        .profile-pic.fade-out {
-            opacity: 0;
-            transform: scale(0.9);
-        }
-
-        .profile-pic.fade-in {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* Styles pour le sélecteur de langue */
-        .language-selector {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 10;
-        }
-
-        .language-selector select {
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid var(--primary-color);
-            border-radius: 25px;
-            padding: 8px 15px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--secondary-color);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .language-selector select:hover {
-            background: rgba(255, 255, 255, 1);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        .language-selector select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        .language-selector option {
-            padding: 10px;
-            background: white;
-            color: var(--secondary-color);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        h2 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .section {
-            background-color: var(--card-bg);
-            margin: 2rem 0;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        .contact-info li {
-            flex-basis: calc(50% - 5px);
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            word-break: break-all;
-            overflow-wrap: break-word;
-        }
-
-        .contact-info li i {
-            margin-left: 10px;
-            color: var(--primary-color);
-            flex-shrink: 0;
-        }
-
-        .contact-info li a {
-            word-break: break-all;
-            overflow-wrap: break-word;
-        }
-
-        ul {
-            list-style-type: none;
-        }
-
-        .skills-list, .languages-list {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .skills-list li, .languages-list li {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 0.5rem 1rem;
-            margin: 0.5rem;
-            border-radius: 20px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .skills-list li:hover, .languages-list li:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        .formation-item, .education-item, .project-item {
-            margin-bottom: 1.5rem;
-            padding: 1.5rem;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            border-right: 4px solid var(--primary-color);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .formation-item:hover, .education-item:hover, .project-item:hover {
-            background-color: #f0f8ff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .formation-item h3, .education-item h3, .project-item h3, .project-item h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .formation-item p {
-            color: #555;
-            margin-bottom: 1rem;
-            font-style: italic;
-            font-size: 1rem;
-        }
-
-        .formation-item ul {
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-
-        .formation-item li {
-            padding: 0.6rem 0;
-            border-bottom: 1px solid #e0e0e0;
-            position: relative;
-            padding-right: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .formation-item li:last-child {
-            border-bottom: none;
-        }
-
-        .formation-item li:hover {
-            background-color: #f8f9fa;
-            padding-right: 2rem;
-        }
-
-        .formation-item li::before {
-            content: "▶";
-            color: var(--primary-color);
-            font-weight: bold;
-            position: absolute;
-            right: 0;
-            top: 0.6rem;
-            font-size: 0.8rem;
-        }
-
-        .formation-item em {
-            color: var(--secondary-color);
-            font-weight: 500;
-            font-size: 0.9rem;
-            background-color: #e8f4fd;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            display: inline-block;
-            margin-top: 0.5rem;
-        }
-
-        /* Amélioration spécifique pour les formations */
-        .formation-item {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .formation-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            opacity: 0.05;
-            border-radius: 50%;
-            transform: translate(-30px, -30px);
-        }
-
-        .formation-item h3 {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .formation-item h3::before {
-            content: "🎓";
-            font-size: 1.2rem;
-        }
-
-        .formation-item ul {
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 1rem 0;
-            border: 1px solid #e0e0e0;
-        }
-
-        .formation-item li {
-            font-size: 0.95rem;
-            line-height: 1.5;
-            color: #444;
-        }
-
-        .formation-item li:hover {
-            color: var(--primary-color);
-        }
-
-        /* Styles pour les catégories de projets */
-        .project-category {
-            margin-bottom: 3rem;
-        }
-
-        .project-category h3 {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .project-category h3 i {
-            margin-left: 0.5rem;
-        }
-
-        /* Styles pour les projets mis en vedette */
-        .project-item.featured {
-            border: 2px solid var(--primary-color);
-            background: linear-gradient(135deg, #f8f9ff, #ffffff);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-item.featured::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .project-header h4 {
-            flex: 1;
-            margin-left: 1rem;
-        }
-
-        .project-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .badge.primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .badge.secondary {
-            background-color: var(--secondary-color);
-            color: white;
-        }
-
-        .badge.accent {
-            background-color: var(--accent-color);
-            color: white;
-        }
-
-        .project-features {
-            margin: 1rem 0;
-            padding: 1rem;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            border-right: 4px solid var(--primary-color);
-        }
-
-        .project-features h5 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .project-features ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .project-features li {
-            padding: 0.3rem 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .project-features li i {
-            color: var(--primary-color);
-            margin-left: 0.5rem;
-            width: 16px;
-        }
-
-        .project-tech {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            background-color: #e8f4fd;
-            border-radius: 6px;
-            border: 1px solid #b3d9ff;
-        }
-
-        .project-tech h5 {
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .project-tech p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        .project-links {
-            margin-top: 1rem;
-            padding: 0.8rem;
-            background-color: #f0f8ff;
-            border-radius: 6px;
-            border: 1px solid #cce7ff;
-        }
-
-        .project-links h5 {
-            color: var(--secondary-color);
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-        }
-
-        .link-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .link-button {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .link-button i {
-            margin-left: 0.5rem;
-            font-size: 1.1rem;
-        }
-
-        .link-button.playstore {
-            background: linear-gradient(135deg, #01875f, #00a86b);
-            color: white;
-        }
-
-        .link-button.playstore:hover {
-            background: linear-gradient(135deg, #016b4a, #008f5a);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(1, 135, 95, 0.3);
-        }
-
-        .link-button.video {
-            background: linear-gradient(135deg, #ff0000, #cc0000);
-            color: white;
-        }
-
-        .link-button.video:hover {
-            background: linear-gradient(135deg, #e60000, #b30000);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
-        }
-
-        /* Styles pour l'expérience professionnelle */
-        .experience-item {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            border-right: 5px solid var(--primary-color);
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .experience-item:hover {
-            background-color: #f0f8ff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .experience-header h3 {
-            flex: 1;
-            margin-left: 1rem;
-            color: var(--primary-color);
-        }
-
-        .experience-badges {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .experience-projects, .experience-skills, .experience-impact {
-            margin: 1.5rem 0;
-            padding: 1rem;
-            background-color: #ffffff;
-            border-radius: 8px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .experience-projects h4, .experience-skills h4, .experience-impact h4 {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-        }
-
-        .project-detail {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background-color: #f8f9fa;
-            border-radius: 6px;
-            border-right: 3px solid var(--accent-color);
-        }
-
-        .project-detail h5 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .experience-skills ul, .experience-impact ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .experience-skills li, .experience-impact li {
-            padding: 0.5rem 0;
-            display: flex;
-            align-items: flex-start;
-            border-bottom: 1px solid #f0f0f0;
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        .experience-skills li:last-child, .experience-impact li:last-child {
-            border-bottom: none;
-        }
-
-        .experience-skills li i, .experience-impact li i {
-            color: var(--primary-color);
-            margin-left: 0.8rem;
-            margin-top: 0.2rem;
-            width: 16px;
-            flex-shrink: 0;
-        }
-
-        .experience-skills li strong, .experience-impact li strong {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .contact-info li {
-                flex-basis: 100%;
-                margin-bottom: 0;
-                padding: 0.8rem;
-                background-color: #f8f9fa;
-                border-radius: 8px;
-                border-right: 4px solid var(--primary-color);
-            }
-
-            .contact-info li i {
-                margin-left: 15px;
-                font-size: 1.1rem;
-            }
-            
-            .profile-pic {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .project-header, .experience-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .project-badges, .experience-badges {
-                margin-top: 0.5rem;
-            }
-
-            .project-category h3 {
-                font-size: 1.3rem;
-                padding: 0.8rem;
-            }
-
-            .experience-item {
-                padding: 1rem;
-            }
-
-            .experience-projects, .experience-skills, .experience-impact {
-                padding: 0.8rem;
-            }
-
-            .experience-skills li, .experience-impact li {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1rem 0;
-                border-bottom: 1px solid #e0e0e0;
-            }
-
-            .experience-skills li i, .experience-impact li i {
-                margin-left: 0;
-                margin-bottom: 0.5rem;
-                font-size: 1.2rem;
-            }
-
-            .experience-skills li strong, .experience-impact li strong {
-                display: block;
-                margin-bottom: 0.3rem;
-                font-size: 1rem;
-            }
-
-            .formation-item {
-                padding: 1rem;
-            }
-            
-            .formation-item h3 {
-                font-size: 1.1rem;
-            }
-            
-            .formation-item li {
-                padding: 0.5rem 0;
-                padding-right: 1.2rem;
-            }
-            
-            .formation-item li:hover {
-                padding-right: 1.5rem;
-            }
-
-            .link-buttons {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-
-            .link-button {
-                justify-content: center;
-                width: 100%;
-            }
-
-            .section {
-                padding: 1.5rem;
-                margin: 1.5rem 0;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-        }
-
-        /* Responsive design pour très petits écrans */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 10px;
-            }
-
-            .contact-info li {
-                padding: 0.6rem;
-                font-size: 0.9rem;
-            }
-
-            .experience-skills li, .experience-impact li {
-                padding: 0.8rem 0;
-            }
-
-            .experience-skills li strong, .experience-impact li strong {
-                font-size: 0.9rem;
-            }
-
-            .section {
-                padding: 1rem;
-                margin: 1rem 0;
-            }
-
-            .formation-item, .education-item, .project-item {
-                padding: 0.8rem;
-            }
-
-            .experience-item {
-                padding: 0.8rem;
-            }
-
-            .experience-projects, .experience-skills, .experience-impact {
-                padding: 0.6rem;
-            }
-        }
-    </style>
+    <title>محسن ماما (MSN) | مهندس برمجيات أول ومعماري نظم</title>
+    <meta name="description" content="معرض أعمال محسن ماما — مهندس برمجيات أول ومعماري نظم موزعة. متخصص في Monorepo و Django REST و Flutter و React 19 والحوسبة السحابية والذكاء الاصطناعي.">
+    
+    <!-- Open Graph & Social -->
+    <meta property="og:title" content="محسن ماما (MSN) | مهندس برمجيات أول ومعماري نظم">
+    <meta property="og:description" content="استكشف المشاريع الهندسية لمحسن ماما: نظام Minfo للصوت والباركود الذكي، ISKANE A2S، MaSanté+، وأنظمة الجوال والذكاء الاصطناعي.">
+    <meta property="og:image" content="msn.png">
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <!-- Sélecteur de langue -->
-            <div class="language-selector">
-                <select onchange="changeLanguage()">
-                    <option value="fr">🇫🇷 Français</option>
-                    <option value="ar" selected>🇸🇦 العربية</option>
-                    <option value="en">🇺🇸 English</option>
-                </select>
+
+    <!-- ================= Navigation Header ================= -->
+    <header class="header">
+        <div class="container nav">
+            <a href="#hero" class="nav-brand">
+                <span class="brand-badge">MSN</span>
+                <span>محسن <span class="gradient-text">ماما</span></span>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="#minfo" class="nav-link"><i class="fas fa-crown" style="color: var(--accent-amber);"></i> نظام Minfo</a>
+                <a href="#projets" class="nav-link">المشاريع الكبرى</a>
+                <a href="#experience" class="nav-link">المسار المهني</a>
+                <a href="#competences" class="nav-link">المهارات التقنية</a>
+                <a href="#contact" class="nav-link">التواصل</a>
+            </nav>
+
+            <div class="nav-actions">
+                <!-- Theme Switcher -->
+                <button id="theme-toggle" class="action-btn" title="تبديل المظهر (ليلي/نهاري)" aria-label="تبديل المظهر">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+
+                <!-- Language Selector -->
+                <div class="lang-select-wrapper">
+                    <select class="lang-select" onchange="handleLanguageChange(this)">
+                        <option value="ar" selected>🇸🇦 العربية</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="en">🇺🇸 English</option>
+                    </select>
+                    <i class="fas fa-chevron-down lang-select-arrow"></i>
+                </div>
+
+                <a href="#contact" class="btn btn-primary" style="padding: 0.5rem 1.15rem; font-size: 0.85rem;">
+                    <i class="fas fa-paper-plane"></i> تواصل معي
+                </a>
             </div>
-            
-            <img id="profile-image" src="msn.png" alt="موسينو ماما" class="profile-pic">
-            <h1>موسينو ماما</h1>
-            <p>مطور Full Stack | فني شبكات | عالم بيانات | متخصص في الذكاء الاصطناعي والتعلم الآلي</p>
         </div>
     </header>
 
-    <main class="container">
-        <section id="contact" class="section">
-            <h2>الاتصال</h2>
-            <ul class="contact-info">
-                <li><i class="fas fa-envelope"></i> moussinoumama52@gmail.com</li>
-                <li><i class="fas fa-phone"></i> +2290195231680 / +2290162241874</li>
-                <li><i class="fas fa-map-marker-alt"></i> زوجباجي / أبومي كالافي / بنين</li>
-                <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/moussinou-mama-8b6270284">LinkedIn</a></li>
-                <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/22995231680">WhatsApp</a></li>
-            </ul>
-        </section>
+    <!-- ================= Hero Section ================= -->
+    <section id="hero" class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="status-chip">
+                    <span class="status-pulse"></span>
+                    <span>متاح لأدوار هندسية عليا وقيادة معمارية برمجية</span>
+                </div>
 
-        <section id="objectif" class="section">
-            <h2>الهدف المهني</h2>
-            <p>مطور شغوف ومبتكر، أسعى إلى دفع حدود التكنولوجيا من خلال الجمع بين خبرتي في الرياضيات وعلوم الحاسوب والذكاء الاصطناعي. هدفي هو تصميم حلول تكنولوجية متقدمة ترد على التحديات المعقدة في عصرنا الرقمي. أهدف إلى المساهمة في مشاريع ضخمة في الذكاء الاصطناعي والتعلم الآلي، مع الاستمرار في تطوير مهاراتي في المجالات الناشئة في علوم الحاسوب.</p>
-        </section>
+                <h1 class="hero-title">
+                    بناء وتصميم <span class="gradient-text">النظم الموزعة</span> وتطبيقات الجوال الفائقة الأداء.
+                </h1>
 
-        <section id="competences" class="section">
-            <h2>المهارات</h2>
-            <ul class="skills-list">
-                <li>Python</li>
-                <li>JavaScript</li>
-                <li>تطوير الويب (HTML, CSS, Vuejs, React)</li>
-                <li>تطوير الهاتف المحمول (Flutter)</li>
-                <li>قواعد البيانات (SQL, NoSQL)</li>
-                <li>DevOps (Docker, Kubernetes)</li>
-                <li>الحوسبة السحابية (AWS, GCP)</li>
-                <li>معالجة الإشارات والصور بـ Python</li>
-                <li>تحليل البيانات</li>
-                <li>التعلم الآلي</li>
-                <li>الخوارزميات وهياكل البيانات</li>
-                <li>Git وإدارة الإصدارات</li>
-            </ul>
-        </section>
+                <p class="hero-subtitle">
+                    مهندس برمجيات متمرس يجمع بين خلفية رياضية متقدمة، ومعمارية خوادم مرنة (Django REST, PostgreSQL, Redis)، وخبرة واسعة في تطبيقات الجوال الهجينة (Flutter) والواجهات الحديثة (React 19, TypeScript).
+                </p>
 
-        <section id="formation" class="section">
-            <h2>التدريب</h2>
-            <div class="formation-item">
-                <h3>AFRIKDUTECH - برنامج DCLIC (OIF)</h3>
-                <p>تدريب مكثف في تطوير الهاتف المحمول Flutter - برنامج DCLIC للمنظمة الدولية للفرنكوفونية</p>
-                <ul>
-                    <li>تصميم الهاتف المحمول بـ Figma: تصميم واجهات المستخدم وإنشاء النماذج</li>
-                    <li>FlutterFlow: تطوير تطبيقات الهاتف المحمول منخفضة الكود</li>
-                    <li>الخوارزميات ومنطق البرمجة</li>
-                    <li>APIs و Postman: طلبات (GET, POST, DELETE)، اختبار API مع شهادة رسمية</li>
-                    <li>لغة Dart: البرمجة الكائنية</li>
-                    <li>Flutter: تطوير تطبيقات الهاتف المحمول متعددة المنصات</li>
-                    <li>مشاريع عملية مع عرض أمام لجنة (كل 1-2 أسبوع)</li>
-                    <li>تصميم السيرة الذاتية ورسالة التحفيز للاندماج المهني</li>
-                </ul>
-                <p><em>ديسمبر 2024 - أبريل 2025</em></p>
-            </div>
-            <div class="formation-item">
-                <h3>AFRICA TECHUP TOURS</h3>
-                <p>تدريب في البيانات/الذكاء الاصطناعي مع التخصص في البنية التحتية للبيانات، DevOps/MLOps والحوسبة السحابية</p>
-                <ul>
-                    <li>البنية التحتية ككود</li>
-                    <li>الحاويات مع Docker</li>
-                    <li>التنسيق مع Kubernetes</li>
-                    <li>منصات السحابة (AWS, GCP, Azure)</li>
-                    <li>نشر نماذج التعلم الآلي</li>
-                    <li>المراقبة مع Grafana</li>
-                </ul>
-                <p><em>04/2024 - 09/2024</em></p>
-            </div>
-            <div class="formation-item">
-                <h3>DATA AFRIQUE HUB</h3>
-                <p>تدريب شامل في علم البيانات</p>
-                <ul>
-                    <li>هندسة البيانات: ETL، خطوط أنابيب البيانات</li>
-                    <li>تحليل البيانات المتقدم</li>
-                    <li>التعلم الآلي التطبيقي</li>
-                    <li>نشر التطبيقات القائمة على البيانات</li>
-                </ul>
-                <p><em>04/2024 - 07/2024</em></p>
-            </div>
-            <div class="formation-item">
-                <h3>BENIN EXCELLENCE (EEIA 2023)</h3>
-                <p>تدريب أساسي في الذكاء الاصطناعي</p>
-                <ul>
-                    <li>برمجة متقدمة بـ Python</li>
-                    <li>أساسيات التعلم الآلي</li>
-                    <li>مقدمة في الروبوتات</li>
-                    <li>مشاريع عملية في الذكاء الاصطناعي</li>
-                </ul>
-                <p><em>17/07/2023 - 12/08/2023</em></p>
-            </div>
-        </section>
+                <div class="hero-actions">
+                    <a href="#minfo" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> استكشف منظومة Minfo
+                    </a>
+                    <a href="https://wa.me/22995231680" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-whatsapp" style="color: var(--accent-emerald);"></i> واتساب مباشر
+                    </a>
+                    <a href="mailto:moussinoumama52@gmail.com" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> البريد الإلكتروني
+                    </a>
+                </div>
 
-        <section id="education" class="section">
-            <h2>المسار الأكاديمي</h2>
-            <div class="education-item">
-                <h3>IFRI-UAC</h3>
-                <p>ماجستير في أنظمة المعلومات وشبكات الحاسوب</p>
-                <p><em>قيد التقدم</em></p>
-            </div>
-            <div class="education-item">
-                <h3>UNSTIM-ABOMEY (FAST-NATI)</h3>
-                <p>إجازة في الرياضيات وعلوم الحاسوب</p>
-                <p><em>تم الحصول عليها في 2023</em></p>
-            </div>
-            <div class="education-item">
-                <h3>ثانوية ماثيو بوكي</h3>
-                <p>بكالوريا شعبة D (علوم)</p>
-                <p><em>تم الحصول عليها في 2019</em></p>
-            </div>
-        </section>
-
-        <section id="experience" class="section">
-            <h2><i class="fas fa-briefcase"></i> الخبرة المهنية</h2>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3><i class="fas fa-laptop-code"></i> تدريب مهني - مطور الهاتف المحمول</h3>
-                    <div class="experience-badges">
-                        <span class="badge primary">CodeLab</span>
-                        <span class="badge secondary">قيد التقدم</span>
+                <!-- Hero Metrics Counter -->
+                <div class="hero-metrics">
+                    <div class="metric-item">
+                        <span class="metric-number gradient-text">30+</span>
+                        <span class="metric-label">وحدة برمجية في الخلفية (Minfo)</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number gradient-text">17</span>
+                        <span class="metric-label">لغة عالمية مدعومة</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number gradient-text">130+</span>
+                        <span class="metric-label">نقطة نهاية REST مؤمنة</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number gradient-text">99.9%</span>
+                        <span class="metric-label">جاهزية واستقرار النظم</span>
                     </div>
                 </div>
-                <p><strong>CodeLab</strong> | <em>2 يونيو 2025 - الحاضر</em></p>
-                <p>تدريب مهني في تطوير الهاتف المحمول حيث أساهم بنشاط في تطوير وتحسين تطبيقات الهاتف المحمول متعددة المنصات.</p>
-                
-                <div class="experience-projects">
-                    <h4><i class="fas fa-project-diagram"></i> المشاريع الرئيسية:</h4>
-                    <div class="project-detail">
-                        <h5><i class="fas fa-mobile-alt"></i> Minfo</h5>
-                        <p>تطبيق هاتف محمول كامل متاح على الويب و Android و iOS. مشاركة نشطة في تطوير الميزات الجديدة والتحديثات والتحسينات المستمرة للتطبيق.</p>
-                        <div class="project-tech">
-                            <strong>التقنيات:</strong> Flutter • Dart • Cross-platform • Web • Mobile
+            </div>
+
+            <!-- Terminal Visual Card -->
+            <div class="hero-visual">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar-wrapper">
+                            <img id="hero-avatar" src="msn.png" alt="محسن ماما" class="profile-avatar">
+                        </div>
+                        <div class="profile-meta">
+                            <h3>محسن ماما <span style="font-size: 0.9rem; color: var(--accent-cyan);">(MSN)</span></h3>
+                            <p>مهندس برمجيات أول ومعماري نظم</p>
+                            <span class="tag tag-cyan" style="margin-top: 0.4rem; display: inline-block;">ماجستير نظم المعلومات والشبكات (IFRI)</span>
                         </div>
                     </div>
-                    <div class="project-detail">
-                        <h5><i class="fas fa-cogs"></i> مشاريع هاتف محمول أخرى</h5>
-                        <p>تطوير وصيانة تطبيقات الهاتف المحمول الأخرى للشركة، المساهمة في النظام البيئي التكنولوجي لـ CodeLab.</p>
-                    </div>
-                </div>
 
-                <div class="experience-skills">
-                    <h4><i class="fas fa-tools"></i> المهارات المكتسبة:</h4>
-                    <ul>
-                        <li><i class="fas fa-globe"></i> <strong>تدويل التطبيقات</strong> - دعم متعدد اللغات والتكيف الثقافي</li>
-                        <li><i class="fas fa-plug"></i> <strong>تكامل API REST</strong> - الاتصال والمزامنة مع خدمات الخادم</li>
-                        <li><i class="fas fa-map-marked-alt"></i> <strong>خرائط جوجل</strong> - تكامل الخرائط والموقع الجغرافي</li>
-                        <li><i class="fas fa-mobile-alt"></i> <strong>Flutter متقدم</strong> - إتقان عميق للإطار وأفضل الممارسات</li>
-                        <li><i class="fas fa-code-branch"></i> <strong>التطوير متعدد المنصات</strong> - تطبيقات موحدة للويب/Android/iOS</li>
-                        <li><i class="fas fa-users"></i> <strong>العمل الجماعي</strong> - التعاون في مشاريع الشركة</li>
-                    </ul>
-                </div>
-
-                <div class="experience-impact">
-                    <h4><i class="fas fa-chart-line"></i> التأثير والإنجازات:</h4>
-                    <ul>
-                        <li>المساهمة في تطوير ميزات مبتكرة</li>
-                        <li>تحسين تجربة المستخدم على جميع المنصات</li>
-                        <li>تحسين أداء التطبيقات</li>
-                        <li>تنفيذ أفضل ممارسات تطوير الهاتف المحمول</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="projets" class="section">
-            <h2><i class="fas fa-rocket"></i> مشاريع مبتكرة</h2>
-            
-            <!-- تطوير الويب والهاتف المحمول -->
-            <div class="project-category">
-                <h3><i class="fas fa-mobile-alt"></i> تطوير الويب والهاتف المحمول</h3>
-                
-                <div class="project-item featured">
-                    <div class="project-header">
-                        <h4><i class="fas fa-star"></i> AlloPro - منصة الخدمات المحلية</h4>
-                        <div class="project-badges">
-                            <span class="badge primary">Flutter</span>
-                            <span class="badge secondary">Firebase</span>
-                            <span class="badge accent">Multi-rôles</span>
+                    <!-- Interactive Terminal Simulation -->
+                    <div class="terminal-window" dir="ltr">
+                        <div class="terminal-bar">
+                            <span class="t-dot t-red"></span>
+                            <span class="t-dot t-yellow"></span>
+                            <span class="t-dot t-green"></span>
+                            <span class="terminal-title">msn@senior-workstation:~</span>
                         </div>
-                    </div>
-                    <p><strong>الوصف:</strong> تطبيق هاتف محمول مبتكر يسهل الربط بين العملاء ومقدمي الخدمات المؤهلين. منصة شاملة مع نظام اشتراك وموقع جغرافي ومراسلة في الوقت الفعلي ودعم متعدد اللغات.</p>
-                    <div class="project-features">
-                        <h5><i class="fas fa-cogs"></i> الميزات الرئيسية:</h5>
-                        <ul>
-                            <li><i class="fas fa-users"></i> نظام متعدد الأدوار (العملاء، مقدمي الخدمات، المدراء)</li>
-                            <li><i class="fas fa-search-location"></i> البحث الجغرافي مع فلاتر متقدمة</li>
-                            <li><i class="fas fa-comments"></i> المراسلة في الوقت الفعلي مع Firebase</li>
-                            <li><i class="fas fa-bell"></i> نظام إشعارات دفع متقدم (مشاهدات الخدمات، المفضلة، التقييمات، الرسائل)</li>
-                            <li><i class="fas fa-credit-card"></i> نظام اشتراك AlloPro+ (3 خطط)</li>
-                            <li><i class="fas fa-globe"></i> دعم متعدد اللغات (FR, EN, AR) مع RTL</li>
-                            <li><i class="fas fa-mobile-alt"></i> واجهة متجاوبة وبديهية</li>
-                        </ul>
-                    </div>
-                    <div class="project-tech">
-                        <h5><i class="fas fa-code"></i> التقنيات:</h5>
-                        <p>Flutter • Dart • Firebase (Auth, Firestore, Storage, Messaging) • GetX</p>
-                    </div>
-                    <div class="project-links">
-                        <h5><i class="fas fa-external-link-alt"></i> الروابط المفيدة:</h5>
-                        <div class="link-buttons">
-                            <a href="https://play.google.com/store/apps/details?id=com.allopro.allopro" target="_blank" class="link-button playstore">
-                                <i class="fab fa-google-play"></i> تحميل من متجر Play
-                            </a>
-                            <a href="https://youtu.be/XSc0m07hXcM?si=pplgiT2FSJfK-_qj" target="_blank" class="link-button video">
-                                <i class="fab fa-youtube"></i> مشاهدة فيديو العرض
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <h4><i class="fas fa-project-diagram"></i> تطبيق ويب لإدارة المشاريع التعاونية</h4>
-                    <p>منصة إدارة المشاريع التعاونية تسمح للفرق بالتخطيط والمتابعة والتعاون في الوقت الفعلي. يدمج نظام إدارة المهام وأدوار المستخدمين والدردشة التعاونية.</p>
-                    <div class="project-tech">
-                        <strong>التقنيات:</strong> Vue.js • Django • WebSocket • PostgreSQL
-                    </div>
-                </div>
-
-                <div class="project-item">
-                    <h4><i class="fas fa-pills"></i> ÌleraSure - الوصول إلى الأدوية في بنين</h4>
-                    <p>تطبيق ويب مبتكر مخصص لتحويل الوصول إلى الأدوية في بنين. استشارة عبر الإنترنت، البحث عن الأدوية حسب القرب والسعر، طلبات مباشرة عبر الإنترنت.</p>
-                    <p><strong><i class="fas fa-external-link-alt"></i> تجربة:</strong> <a href="https://blue-worm-998583.hostingersite.com/">اختبار التطبيق</a></p>
-                    <div class="project-tech">
-                        <strong>التقنيات:</strong> Vue.js • Node.js • MySQL
-                    </div>
-                </div>
-
-                <div class="project-item featured">
-                    <div class="project-header">
-                        <h4><i class="fas fa-car"></i> Parky - تطبيق إدارة المواقف الذكية</h4>
-                        <div class="project-badges">
-                            <span class="badge primary">Flutter</span>
-                            <span class="badge secondary">Firebase</span>
-                            <span class="badge accent">Google Maps</span>
-                        </div>
-                    </div>
-                    <p><strong>الوصف:</strong> تطبيق هاتف محمول شامل لإدارة وحجز أماكن الوقوف مع نظام متعدد الأدوار (عميل، مالك، مدير). يتضمن موقع جغرافي في الوقت الفعلي، تقويم تفاعلي، إشعارات ثنائية الاتجاه ونظام دفع متقدم.</p>
-                    <div class="project-features">
-                        <h5><i class="fas fa-cogs"></i> الميزات الرئيسية:</h5>
-                        <ul>
-                            <li><i class="fas fa-users"></i> نظام متعدد الأدوار (عميل، مالك، مدير)</li>
-                            <li><i class="fas fa-map-marked-alt"></i> تكامل خرائط جوجل مع الموقع الجغرافي في الوقت الفعلي</li>
-                            <li><i class="fas fa-calendar-alt"></i> تقويم تفاعلي للحجوزات المتقدمة</li>
-                            <li><i class="fas fa-bell"></i> نظام إشعارات دفع ثنائية الاتجاه</li>
-                            <li><i class="fas fa-credit-card"></i> نظام دفع مرن (فوري/عند الوصول)</li>
-                            <li><i class="fas fa-images"></i> رفع متعدد للصور مع Firebase Storage</li>
-                            <li><i class="fas fa-search"></i> اقتراحات ذكية للمواقف مع فلاتر</li>
-                            <li><i class="fas fa-chart-line"></i> لوحة تحليلات للمالكين</li>
-                        </ul>
-                    </div>
-                    <div class="project-tech">
-                        <h5><i class="fas fa-code"></i> التقنيات:</h5>
-                        <p>Flutter • Dart • Firebase (Auth, Firestore, Storage, Messaging) • Google Maps API • Geolocator • Google Sign-In • Stripe/PayPal</p>
-                    </div>
-                    <div class="project-links">
-                        <h5><i class="fas fa-external-link-alt"></i> حالة المشروع والاختبار:</h5>
-                        <div class="link-buttons">
-                            <span class="link-button" style="background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; cursor: default;">
-                                <i class="fas fa-code"></i> قيد التطوير
-                            </span>
-                            <a href="https://drive.google.com/file/d/1ZduVRKx2NIhzlLoLQtLeKL4T0wroVE0w/view?usp=sharing" target="_blank" class="link-button" style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white;">
-                                <i class="fas fa-download"></i> تحميل APK
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item featured">
-                    <div class="project-header">
-                        <h4><i class="fas fa-shopping-cart"></i> ShopEasy - تطبيق التجارة الإلكترونية الحديث</h4>
-                        <div class="project-badges">
-                            <span class="badge primary">Flutter</span>
-                            <span class="badge secondary">GetX</span>
-                            <span class="badge accent">متعدد المنصات</span>
-                        </div>
-                    </div>
-                    <p><strong>الوصف:</strong> تطبيق تجارة إلكترونية شامل متعدد المنصات مع واجهة مستخدم حديثة، دعم متعدد اللغات ولوحة تحكم إدارية شاملة. يتضمن 30+ منتج في 8 فئات مع إدارة متقدمة للسلة، تتبع الطلبات وتصميم متجاوب.</p>
-                    <div class="project-features">
-                        <h5><i class="fas fa-cogs"></i> الميزات الرئيسية:</h5>
-                        <ul>
-                            <li><i class="fas fa-mobile-alt"></i> متعدد المنصات (Android, iOS, Web, Desktop)</li>
-                            <li><i class="fas fa-shopping-bag"></i> كتالوج شامل مع 30+ منتج في 8 فئات</li>
-                            <li><i class="fas fa-cart-plus"></i> إدارة متقدمة للسلة مع متغيرات (لون، تخزين)</li>
-                            <li><i class="fas fa-clipboard-list"></i> تتبع الطلبات مع تحديثات الحالة</li>
-                            <li><i class="fas fa-palette"></i> موضوع متكيف مظلم/فاتح مع الاستمرارية</li>
-                            <li><i class="fas fa-globe"></i> دعم 12 لغة (EN, FR, ES, DE, IT, PT, RU, CN, JP, KR, AR, HI)</li>
-                            <li><i class="fas fa-comments"></i> نظام دردشة مدمج مع دعم إداري</li>
-                            <li><i class="fas fa-chart-bar"></i> لوحة تحكم إدارية شاملة مع تحليلات</li>
-                            <li><i class="fas fa-file-pdf"></i> توليد وتحميل إيصالات PDF</li>
-                            <li><i class="fas fa-search"></i> البحث في المنتجات والتصفية حسب الفئة</li>
-                        </ul>
-                    </div>
-                    <div class="project-tech">
-                        <h5><i class="fas fa-code"></i> التقنيات:</h5>
-                        <p>Flutter • Dart • GetX (إدارة الحالة، التنقل) • Hive (قاعدة بيانات محلية) • SharedPreferences • Google Nav Bar • Intl (التدويل) • Package Info Plus</p>
-                    </div>
-                    <div class="project-links">
-                        <h5><i class="fas fa-external-link-alt"></i> حالة المشروع والاختبار:</h5>
-                        <div class="link-buttons">
-                            <span class="link-button" style="background: linear-gradient(135deg, #ff6b35, #f7931e); color: white; cursor: default;">
-                                <i class="fas fa-code"></i> قيد التطوير
-                            </span>
-                            <a href="https://drive.google.com/file/d/YOUR_SHOPEASY_APK_ID/view?usp=sharing" target="_blank" class="link-button" style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white;">
-                                <i class="fas fa-download"></i> تحميل APK
-                            </a>
+                        <div class="terminal-body">
+                            <div><span class="t-prompt">$</span> <span id="terminal-cmd" class="t-cmd"></span><span class="t-cursor"></span></div>
+                            <pre id="terminal-out" class="t-out" style="margin-top: 0.6rem; font-family: inherit; font-size: inherit; white-space: pre-wrap;"></pre>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- الذكاء الاصطناعي والتعلم الآلي -->
-            <div class="project-category">
-                <h3><i class="fas fa-brain"></i> الذكاء الاصطناعي والتعلم الآلي</h3>
-                
-                <div class="project-item">
-                    <h4><i class="fas fa-robot"></i> ذراع روبوتي ذكي</h4>
-                    <p>تصميم وتنفيذ ذراع روبوتي مستقل يستخدم خوارزميات التعلم الآلي لفرز مكونات إلكترونية ذكية. يجمع بين رؤية الحاسوب والتعلم المعزز والتحكم الروبوتي.</p>
-                    <div class="project-tech">
-                        <strong>التقنيات:</strong> Python • OpenCV • TensorFlow • Robotique • Computer Vision
+    <!-- ================= FLAGSHIP SHOWCASE: MINFO ================= -->
+    <section id="minfo" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-crown"></i> المشروع الهندسي الرائد</span>
+                <h2 class="section-title">Minfo : منظومة التجارة الذكية عبر الصوت والباركود (AudioQR)</h2>
+                <p class="section-desc">
+                    تحويل المنتجات والبطاقات والأحداث الفيزيائية إلى تجارب رقمية تفاعلية وفورية عبر الرموز التفاعلية والبصمات الصوتية المسجلة.
+                </p>
+            </div>
+
+            <div class="flagship-card">
+                <div class="flagship-banner">
+                    <div>
+                        <div class="flagship-badge">
+                            <i class="fas fa-microchip"></i> معمارية Monorepo متعددة المنصات
+                        </div>
+                        <h3 class="flagship-title">منظومة Minfo المتكاملة</h3>
+                        <p class="flagship-lead">
+                            تصميم وبناء نظام متكامل يجمع بين خوادم Django REST الفائقة، وتطبيق الويب React 19، وتطبيق الجوال Flutter المجهز بمحرك AudioQR، وتطبيق شوبيفاي المدمج (Shopify Polaris).
+                        </p>
                     </div>
+                    <button onclick="openCaseStudy('minfo')" class="btn btn-primary">
+                        <i class="fas fa-search-plus"></i> دراسة المعمارية الهندسية
+                    </button>
                 </div>
 
-                <div class="project-item">
-                    <h4><i class="fas fa-virus"></i> منصة التنبؤ بـ COVID-19</h4>
-                    <p>منصة ذكاء اصطناعي قادرة على استخدام البيانات التنفسية للتنبؤ بما إذا كان المريض مصاباً بـ COVID-19. تجمع بين معالجة البيانات الطبية والتعلم الآلي للتنبؤات الدقيقة والسريعة.</p>
-                    <p><strong><i class="fas fa-external-link-alt"></i> تجربة:</strong> <a href="https://moussinou-covid-diagnostics.streamlit.app/">اختبار الحل</a></p>
-                    <p><strong><i class="fas fa-file-pdf"></i> الوثائق:</strong> <a href="https://drive.google.com/file/d/1jl1MJON2KpFDIaJZsnYck7PHzKHaN5Uv/view?usp=sharing">الوثيقة التقنية</a></p>
-                    <div class="project-tech">
-                        <strong>التقنيات:</strong> Python • Scikit-learn • Streamlit • Machine Learning • Data Science
-                    </div>
-                </div>
+                <div class="flagship-body">
+                    <!-- 4 Pillars -->
+                    <div class="arch-grid">
+                        <div class="arch-pillar">
+                            <div class="pillar-icon"><i class="fas fa-server"></i></div>
+                            <h4>1. خادم Django REST</h4>
+                            <span class="repo-slug">github.com/codelab-bj/minfo-v2-backend</span>
+                            <p>واجهة برمجية كاملة (أكثر من 30 وحدة: الحملات، الروابط الذكية، مصمم الاستوديو، أحداث حية، ومحفظة Apple/Google).</p>
+                            <div class="pillar-tech">
+                                <span class="tag tag-cyan">Django 5</span>
+                                <span class="tag">PostgreSQL</span>
+                                <span class="tag">Redis</span>
+                                <span class="tag">VPS / Nginx</span>
+                            </div>
+                        </div>
 
-                <div class="project-item">
-                    <h4><i class="fas fa-chart-line"></i> التنبؤ بانسحاب العملاء (Churn Prediction)</h4>
-                    <p>منصة قائمة على الذكاء الاصطناعي قادرة على التنبؤ بمغادرة أو انسحاب عملاء شركة اتصالات. تستخدم خوارزميات التعلم الآلي المتقدمة لتحليل سلوكيات العملاء وتحديد عوامل الخطر.</p>
-                    <p><strong><i class="fas fa-external-link-alt"></i> تجربة:</strong> <a href="https://moussinouchurnpredict.streamlit.app/">اختبار الحل</a></p>
-                    <div class="project-tech">
-                        <strong>التقنيات:</strong> Python • Pandas • Scikit-learn • Streamlit • Data Analysis
+                        <div class="arch-pillar">
+                            <div class="pillar-icon"><i class="fas fa-globe"></i></div>
+                            <h4>2. تطبيق الويب React 19</h4>
+                            <span class="repo-slug">github.com/codelab-bj/minfo-v2-web</span>
+                            <p>لوحة تحكم تفاعلية لصناع الحملات مع محرر سحب وإفلات، ومحرر نصوص متقدم TipTap، وتتبع PostHog.</p>
+                            <div class="pillar-tech">
+                                <span class="tag tag-cyan">React 19</span>
+                                <span class="tag">TypeScript</span>
+                                <span class="tag">Vite</span>
+                                <span class="tag tag-emerald">17 لغة</span>
+                            </div>
+                        </div>
+
+                        <div class="arch-pillar">
+                            <div class="pillar-icon"><i class="fas fa-mobile-screen"></i></div>
+                            <h4>3. تطبيق الجوال Flutter</h4>
+                            <span class="repo-slug">github.com/codelab-bj/minfo-v2-flutter</span>
+                            <p>تطبيق هجين فائق السرعة للتعرف المباشر على التوقيعات الصوتية والرموز البصرية في الوقت الفعلي.</p>
+                            <div class="pillar-tech">
+                                <span class="tag tag-purple">Flutter 3.x</span>
+                                <span class="tag">Dart</span>
+                                <span class="tag">WebRTC</span>
+                                <span class="tag">AudioQR SDK</span>
+                            </div>
+                        </div>
+
+                        <div class="arch-pillar">
+                            <div class="pillar-icon"><i class="fab fa-shopify"></i></div>
+                            <h4>4. تطبيق شوبيفاي المدمج</h4>
+                            <span class="repo-slug">github.com/rstorti/minfo-shopify-dash</span>
+                            <p>تطبيق مدمج داخل لوحة تحكم تجار شوبيفاي لإنشاء حملات تفاعلية وربط المنتجات بصوتيات وباركود Minfo.</p>
+                            <div class="pillar-tech">
+                                <span class="tag tag-emerald">Shopify Polaris</span>
+                                <span class="tag">App Bridge</span>
+                                <span class="tag">React 18</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Highlights Box -->
+                    <div class="flagship-highlights">
+                        <div class="hl-column">
+                            <h5><i class="fas fa-shield-halved"></i> معايير API والاعتمادية</h5>
+                            <ul class="hl-list">
+                                <li><i class="fas fa-check"></i> مواصفة OpenAPI رسمية (`@minfo/api-contract`) مرجعية مركزية للعملاء الأربعة.</li>
+                                <li><i class="fas fa-check"></i> نظام مصادقة متعدد المستأجرين مع تبادل آمن لرموز شوبيفاي وتزامن فوري عبر WebSockets.</li>
+                                <li><i class="fas fa-check"></i> نشر مؤتمت على خوادم Ubuntu مع Nginx كوكيل عكسي وخوادم Gunicorn وذاكرة تخزين مؤقت Redis.</li>
+                            </ul>
+                        </div>
+                        <div class="hl-column">
+                            <h5><i class="fas fa-cubes"></i> الحزم المشتركة وتعدد المنصات</h5>
+                            <ul class="hl-list">
+                                <li><i class="fas fa-check"></i> <strong>@minfo/studio-ui</strong>: مكتبة مكونات مشتركة بين واجهة الويب ولوحة تحكم شوبيفاي.</li>
+                                <li><i class="fas fa-check"></i> <strong>@minfo/minfo_sdk</strong>: محرك فك ترميز الإشارات الصوتية بلغة Dart.</li>
+                                <li><i class="fas fa-check"></i> دعم كامل لـ 17 لغة عالمية مع مراعاة كاملة للاتجاهين LTR و RTL للغة العربية.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="langues" class="section">
-            <h2>المهارات اللغوية</h2>
-            <ul class="languages-list">
-                <li>دندي (اللغة الأم)</li>
-                <li>الفرنسية (متقن)</li>
-                <li>العربية (متقن)</li>
-                <li>الإنجليزية (مهني)</li>
-            </ul>
-        </section>
-    </main>
+    <!-- ================= PROJETS MAJEURS ================= -->
+    <section id="projets" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-layer-group"></i> النظم والمشاريع المنفذة</span>
+                <h2 class="section-title">مشاريع هندسية وأنظمة إنتاجية</h2>
+                <p class="section-desc">
+                    منصات مؤسسية متكاملة، قواعد بيانات معقدة، تطبيقات منشورة على المتاجر، ونماذج ذكاء اصطناعي تطبيقية.
+                </p>
+            </div>
 
-    <script>
-        // Rotation des images de profil
-        document.addEventListener('DOMContentLoaded', function() {
-            const profileImage = document.getElementById('profile-image');
-            const images = ['msn.png','msn1.jpeg'];
-            let currentImageIndex = 0;
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-btn active" data-filter="all">جميع المشاريع</button>
+                <button class="filter-btn" data-filter="distributed">نظم موزعة</button>
+                <button class="filter-btn" data-filter="cloud">حوسبة وخوادم</button>
+                <button class="filter-btn" data-filter="mobile">تطبيقات الجوال</button>
+                <button class="filter-btn" data-filter="ai">ذكاء اصطناعي وتحليل بيانات</button>
+            </div>
 
-            function switchImage() {
-                // Ajouter l'effet de fade-out
-                profileImage.classList.add('fade-out');
-                
-                setTimeout(() => {
-                    // Changer l'image
-                    currentImageIndex = (currentImageIndex + 1) % images.length;
-                    profileImage.src = images[currentImageIndex];
-                    
-                    // Ajouter l'effet de fade-in
-                    profileImage.classList.remove('fade-out');
-                    profileImage.classList.add('fade-in');
-                    
-                    // Retirer la classe fade-in après l'animation
-                    setTimeout(() => {
-                        profileImage.classList.remove('fade-in');
-                    }, 500);
-                }, 500); // Attendre la fin de l'animation fade-out
-            }
+            <div class="projects-grid">
 
-            // Démarrer la rotation toutes les 5 secondes
-            setInterval(switchImage, 5000);
-        });
+                <!-- 1. ISKANE A2S -->
+                <div class="project-card featured" data-category="cloud">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-university"></i> نظام جامعي متكامل</span>
+                            <div class="project-links">
+                                <button onclick="openCaseStudy('iskane')" class="icon-link" title="عرض التفاصيل">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">ISKANE A2S — نظام إدارة القبول والمتابعة الطلابية</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            منظومة إلكترونية متكاملة للمجمع السكني الجامعي الإسلامي في بنين: تسجيل في 6 مراحل، اختبارات مؤتمتة بنظام مراقبة نشط لمكافحة الغش (رصد فقدان تركيز الشاشة)، تقييم المقابلات الشفوية، وتوليد تقارير تصنيف PDF رسمية.
+                        </p>
+                        <div class="project-key-stats">
+                            <div class="stat-item">
+                                <span class="stat-val">130+</span>
+                                <span class="stat-desc">نقطة نهاية API</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-val">5 أدوار</span>
+                                <span class="stat-desc">نظام صلاحيات RBAC</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-val">مكافحة الغش</span>
+                                <span class="stat-desc">Focus Loss Detection</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-val">PWA</span>
+                                <span class="stat-desc">عمل بدون إنترنت ودعم كامل للعربية</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-cyan">Django 5</span>
+                            <span class="tag">React 18 PWA</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">ReportLab PDF</span>
+                        </div>
+                        <button onclick="openCaseStudy('iskane')" class="btn-details">
+                            تفاصيل المعمارية <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
 
-        // Fonction pour changer la langue
-        function changeLanguage() {
-            const select = document.querySelector('.language-selector select');
-            const language = select.value;
-            
-            if (language === 'fr') {
-                window.location.href = 'index-fr.html';
-            } else if (language === 'en') {
-                window.location.href = 'index.html';
-            } else {
-                // Pour l'arabe, on reste sur la page actuelle (index-ar.html)
-                // Pas de redirection nécessaire
-            }
-        }
-    </script>
+                <!-- 2. MaSanté+ -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-heart-pulse"></i> صحة رقمية</span>
+                            <div class="project-links">
+                                <button onclick="openCaseStudy('masante')" class="icon-link" title="عرض التفاصيل">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">MaSanté+ — منصة الرعاية الصحية</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            نظام متكامل يربط المرضى والكوادر الصحية والإداريين. ملف طبي مشفر، حجز مواعيد، إشعارات فورية FCM، وأكثر من 39 اختباراً وحدوياً مؤتمتاً.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-purple">Flutter 3.x</span>
+                            <span class="tag">Django DRF</span>
+                            <span class="tag">Riverpod</span>
+                        </div>
+                        <button onclick="openCaseStudy('masante')" class="btn-details">
+                            عرض <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3. AlloPro -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fab fa-google-play"></i> منشور على المتاجر</span>
+                            <div class="project-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.allopro.allopro" target="_blank" class="icon-link" title="Play Store">
+                                    <i class="fab fa-google-play"></i>
+                                </a>
+                                <button onclick="openCaseStudy('allopro')" class="icon-link" title="عرض التفاصيل">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">AlloPro — خدمات محلية</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            تطبيق جوال يربط العملاء بالمهنيين المؤهلين. خطط اشتراك AlloPro+، ومحادثة فورية، وتحديد الموقع الجغرافي.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-purple">Flutter</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">GetX</span>
+                        </div>
+                        <button onclick="openCaseStudy('allopro')" class="btn-details">
+                            عرض <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 4. Parky -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-car"></i> مواقف ذكية</span>
+                            <div class="project-links">
+                                <a href="https://drive.google.com/file/d/1ZduVRKx2NIhzlLoLQtLeKL4T0wroVE0w/view?usp=sharing" target="_blank" class="icon-link" title="تحميل APK">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <button onclick="openCaseStudy('parky')" class="icon-link" title="عرض التفاصيل">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Parky — حجز وإدارة المواقف</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            تطبيق لإدارة وحجز مواقف السيارات بالوقت الفعلي عبر خرائط Google Maps مع رزنامة تفاعلية ولوحة تحكم للمالكين.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-purple">Flutter</span>
+                            <span class="tag">Google Maps</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                        <button onclick="openCaseStudy('parky')" class="btn-details">
+                            عرض <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 5. ShopEasy -->
+                <div class="project-card" data-category="mobile">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-cart-shopping"></i> تجارة إلكترونية</span>
+                            <div class="project-links">
+                                <button onclick="openCaseStudy('shopeasy')" class="icon-link" title="عرض التفاصيل">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">ShopEasy — متجر متكامل</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            تطبيق تسوق إلكتروني متكامل يدعم 12 لغة عالمية، وقاعدة بيانات سريعة Hive NoSQL، وتوليد فواتير PDF فورية.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-purple">Flutter</span>
+                            <span class="tag">Hive DB</span>
+                            <span class="tag">12 لغة</span>
+                        </div>
+                        <button onclick="openCaseStudy('shopeasy')" class="btn-details">
+                            عرض <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 6. COVID-19 AI Diagnostics -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-brain"></i> تعلم الآلي</span>
+                            <div class="project-links">
+                                <a href="https://moussinou-covid-diagnostics.streamlit.app/" target="_blank" class="icon-link" title="تجربة حية">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button onclick="openCaseStudy('covid19')" class="icon-link" title="عرض التفاصيل">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">تشخيص كوفيد-19 بالذكاء الاصطناعي</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            نموذج تصنيف طبي يعتمد على المؤشرات الحيوية التنفسية للمساعدة في الفحص السريع، متاح عبر واجهة Streamlit سحابية.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-cyan">Python</span>
+                            <span class="tag">Scikit-Learn</span>
+                            <span class="tag">Streamlit</span>
+                        </div>
+                        <button onclick="openCaseStudy('covid19')" class="btn-details">
+                            عرض <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 7. Churn Prediction -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-chart-line"></i> علم البيانات</span>
+                            <div class="project-links">
+                                <a href="https://moussinouchurnpredict.streamlit.app/" target="_blank" class="icon-link" title="تجربة حية">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button onclick="openCaseStudy('churn')" class="icon-link" title="عرض التفاصيل">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">التنبؤ بانفصال عملاء الاتصالات</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            نموذج تنبؤي لتحليل سلوك المستهلك وتوقع مغادرة العملاء في شركات الاتصالات مع لوحة تحكم تفاعلية للمسوقين.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-cyan">Python</span>
+                            <span class="tag">Pandas</span>
+                            <span class="tag">Scikit-Learn</span>
+                        </div>
+                        <button onclick="openCaseStudy('churn')" class="btn-details">
+                            عرض <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 8. Robotic Arm -->
+                <div class="project-card" data-category="ai">
+                    <div class="project-card-header">
+                        <div class="project-top-row">
+                            <span class="project-type"><i class="fas fa-robot"></i> روبوتات ورؤية حاسوبية</span>
+                            <div class="project-links">
+                                <button onclick="openCaseStudy('robotics')" class="icon-link" title="عرض التفاصيل">
+                                    <i class="fas fa-expand-arrows-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">ذراع روبوتي ذاتي القيادة</h3>
+                    </div>
+                    <div class="project-card-body">
+                        <p class="project-desc">
+                            نظام روبوتي ذكي يدمج بين الرؤية الحاسوبية (OpenCV) والشبكات العصبية (TensorFlow) لتحديد وفرز القطع الإلكترونية بدقة.
+                        </p>
+                    </div>
+                    <div class="project-card-footer">
+                        <div class="project-tags">
+                            <span class="tag tag-cyan">OpenCV</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">Robotics</span>
+                        </div>
+                        <button onclick="openCaseStudy('robotics')" class="btn-details">
+                            عرض <i class="fas fa-arrow-left"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-timeline"></i> السيرة والمسار</span>
+                <h2 class="section-title">المسار المهني والأكاديمي</h2>
+                <p class="section-desc">
+                    أسس علمية متينة في الرياضيات وعلوم الحاسوب مقترنة بإنجازات برمجية قيادية في بيئات الإنتاج الحية.
+                </p>
+            </div>
+
+            <div class="experience-grid">
+                <div class="timeline-block">
+                    <h3 class="timeline-title"><i class="fas fa-briefcase" style="color: var(--accent-cyan);"></i> الخبرة المهنية</h3>
+                    <div class="timeline-items">
+                        <div class="t-item">
+                            <span class="t-item-dot"></span>
+                            <div class="t-item-period">يونيو 2025 — الحاضر</div>
+                            <h4>مهندس برمجيات أول ومسؤول تطوير الجوال</h4>
+                            <div class="institution">CodeLab | بنين ودولياً</div>
+                            <p>
+                                قيادة هندسة منظومة <strong>Minfo</strong> الشاملة (الويب، تطبيقات الجوال Flutter، خوادم Django، وتطبيق شوبيفاي). إدارة المعمارية الموزعة، ومواصفات OpenAPI، والنشر على خوادم الإنتاج.
+                            </p>
+                            <div class="pillar-tech">
+                                <span class="tag tag-cyan">Minfo Lead</span>
+                                <span class="tag">Flutter</span>
+                                <span class="tag">Django DRF</span>
+                                <span class="tag">Shopify</span>
+                            </div>
+                        </div>
+
+                        <div class="t-item">
+                            <span class="t-item-dot"></span>
+                            <div class="t-item-period">2024 — 2025</div>
+                            <h4>معماري نظم برمجية مستقل</h4>
+                            <div class="institution">مشاريع مؤسسية وخاصة</div>
+                            <p>
+                                تصميم وتنفيذ منصة القبول <strong>ISKANE A2S</strong>، وتطبيق <strong>MaSanté+</strong>، وتطبيقات التجارة والخدمات المنشورة على Google Play.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-block">
+                    <h3 class="timeline-title"><i class="fas fa-graduation-cap" style="color: var(--accent-indigo);"></i> المسار الأكاديمي والتدريب المتقدم</h3>
+                    <div class="timeline-items">
+                        <div class="t-item academic">
+                            <span class="t-item-dot"></span>
+                            <div class="t-item-period">قيد الإنجاز</div>
+                            <h4>ماجستير في نظم المعلومات والشبكات الحاسوبية</h4>
+                            <div class="institution">IFRI — جامعة أبومي كالافي (UAC)</div>
+                            <p>معمارية النظم الموزعة، الأمن السيبراني، والحوسبة السحابية عالية التوافر.</p>
+                        </div>
+
+                        <div class="t-item academic">
+                            <span class="t-item-dot"></span>
+                            <div class="t-item-period">2020 — 2023</div>
+                            <h4>بكالوريوس (إجازة) في الرياضيات والإعلام الآلي</h4>
+                            <div class="institution">جامعة UNSTIM أبومي (FAST-NATI)</div>
+                            <p>تأسيس نظري متين: التحليل الرياضي، الجبر الخطي، الاحتمالات، وتصميم الخوارزميات المتقدمة.</p>
+                        </div>
+
+                        <div class="t-item academic">
+                            <span class="t-item-dot"></span>
+                            <div class="t-item-period">2024 — 2025</div>
+                            <h4>معسكرات تدريبية معتمدة</h4>
+                            <div class="institution">DCLIC (OIF) • Africa TechUp • Data Afrique Hub • EEIA</div>
+                            <p>
+                                <strong>AFRIKDUTECH (DCLIC - OIF)</strong>: تخصص متقدم في Flutter وواجهات البرمجة.<br>
+                                <strong>Africa TechUp Tours</strong>: بنية البيانات التحتية وDevOps (Docker, Kubernetes).<br>
+                                <strong>Bénin Excellence (EEIA)</strong>: الذكاء الاصطناعي والروبوتات.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= COMPETENCES ================= -->
+    <section id="competences" class="section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag"><i class="fas fa-tools"></i> المصفوفة التقنية</span>
+                <h2 class="section-title">الكفاءات والمهارات الهندسية</h2>
+                <p class="section-desc">
+                    كفاءة متعددة اللغات البرمجية تشمل كامل دورة حياة المنتج البرمجي.
+                </p>
+            </div>
+
+            <div class="skills-container">
+                <div class="skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-server"></i></div>
+                        <h4>الخوادم والنظم الخلفية</h4>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="skill-chip">Python</span>
+                        <span class="skill-chip">Django 5</span>
+                        <span class="skill-chip">Django REST</span>
+                        <span class="skill-chip">PostgreSQL</span>
+                        <span class="skill-chip">Redis</span>
+                        <span class="skill-chip">WebSockets</span>
+                        <span class="skill-chip">OpenAPI / Swagger</span>
+                        <span class="skill-chip">Pytest</span>
+                        <span class="skill-chip">JWT & RBAC</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-mobile-screen"></i></div>
+                        <h4>تطوير تطبيقات الجوال</h4>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="skill-chip">Flutter</span>
+                        <span class="skill-chip">Dart</span>
+                        <span class="skill-chip">Riverpod</span>
+                        <span class="skill-chip">GetX</span>
+                        <span class="skill-chip">WebRTC</span>
+                        <span class="skill-chip">Google Maps</span>
+                        <span class="skill-chip">Hive DB</span>
+                        <span class="skill-chip">Dio</span>
+                        <span class="skill-chip">Push FCM</span>
+                        <span class="skill-chip">AudioQR SDK</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h4>واجهات الويب الحديثة</h4>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="skill-chip">React 18 / 19</span>
+                        <span class="skill-chip">TypeScript</span>
+                        <span class="skill-chip">Vite</span>
+                        <span class="skill-chip">Shopify App Bridge</span>
+                        <span class="skill-chip">Shopify Polaris</span>
+                        <span class="skill-chip">Tailwind CSS</span>
+                        <span class="skill-chip">i18next (17 لغة)</span>
+                        <span class="skill-chip">PWA</span>
+                    </div>
+                </div>
+
+                <div class="skill-category-card">
+                    <div class="skill-cat-header">
+                        <div class="skill-cat-icon"><i class="fas fa-cloud-bolt"></i></div>
+                        <h4>السحابة والذكاء الاصطناعي</h4>
+                    </div>
+                    <div class="skill-chips">
+                        <span class="skill-chip">Docker</span>
+                        <span class="skill-chip">Kubernetes</span>
+                        <span class="skill-chip">Nginx Reverse Proxy</span>
+                        <span class="skill-chip">Ubuntu VPS</span>
+                        <span class="skill-chip">Scikit-Learn</span>
+                        <span class="skill-chip">TensorFlow & OpenCV</span>
+                        <span class="skill-chip">Streamlit</span>
+                        <span class="skill-chip">Pandas & NumPy</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="contact-card">
+                <div class="contact-grid">
+                    <div class="contact-text-col">
+                        <span class="section-tag"><i class="fas fa-handshake"></i> لنعمل معاً</span>
+                        <h2 class="section-title" style="margin-bottom: 1rem;">دعنا نحول الأفكار الكبرى إلى أنظمة حية</h2>
+                        <p class="section-desc">
+                            مستعد لقيادة وتطوير مشاريعكم القادمة كمهندس برمجيات أول، أو قائد تقني لتطبيقات الجوال، أو معماري نظم.
+                        </p>
+
+                        <div class="contact-info-list">
+                            <div class="contact-row">
+                                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                                <div class="contact-text">
+                                    <span class="contact-label">البريد الإلكتروني المهني</span>
+                                    <a href="mailto:moussinoumama52@gmail.com" class="contact-val">moussinoumama52@gmail.com</a>
+                                </div>
+                                <button onclick="copyToClipboard('moussinoumama52@gmail.com', this)" class="copy-btn" title="نسخ البريد">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+
+                            <div class="contact-row">
+                                <div class="contact-icon" style="color: var(--accent-emerald); background: rgba(16, 185, 129, 0.1);"><i class="fab fa-whatsapp"></i></div>
+                                <div class="contact-text">
+                                    <span class="contact-label">واتساب ورقم الهاتف</span>
+                                    <a href="https://wa.me/22995231680" target="_blank" class="contact-val" dir="ltr">+229 01 95 23 16 80 / +229 01 62 24 18 74</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-row">
+                                <div class="contact-icon" style="color: var(--accent-blue); background: rgba(59, 130, 246, 0.1);"><i class="fab fa-linkedin"></i></div>
+                                <div class="contact-text">
+                                    <span class="contact-label">حساب LinkedIn</span>
+                                    <a href="https://www.linkedin.com/in/moussinou-mama-8b6270284" target="_blank" class="contact-val" dir="ltr">linkedin.com/in/moussinou-mama-8b6270284</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-row">
+                                <div class="contact-icon" style="color: var(--text-primary); background: rgba(255, 255, 255, 0.08);"><i class="fab fa-github"></i></div>
+                                <div class="contact-text">
+                                    <span class="contact-label">حساب GitHub</span>
+                                    <a href="https://github.com/mouhsinou" target="_blank" class="contact-val" dir="ltr">github.com/mouhsinou</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quick-connect-form">
+                        <h4 style="font-size: 1.2rem; font-weight: 700; margin-bottom: 1.25rem;">
+                            <i class="fas fa-paper-plane" style="color: var(--accent-cyan);"></i> إرسال رسالة مباشرة
+                        </h4>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label class="form-label">الاسم أو اسم المؤسسة</label>
+                                <input type="text" class="form-input" placeholder="مثال: أحمد محمد / شركة تقنية" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">البريد الإلكتروني</label>
+                                <input type="email" class="form-input" placeholder="مثال: contact@company.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">موضوع الرسالة</label>
+                                <input type="text" class="form-input" placeholder="مثال: فرصة عمل مهندس أول / تطوير Flutter" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">الرسالة</label>
+                                <textarea class="form-textarea" rows="4" placeholder="اكتب تفاصيل استفسارك أو مشروعك هنا..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div>
+                <p style="font-weight: 600; color: var(--text-primary);">محسن ماما (MSN)</p>
+                <p style="font-size: 0.85rem;">مهندس برمجيات أول ومعماري نظم • أبومي كالافي، بنين</p>
+            </div>
+
+            <div class="social-links">
+                <a href="https://github.com/mouhsinou" target="_blank" class="action-btn" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/moussinou-mama-8b6270284" target="_blank" class="action-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/22995231680" target="_blank" class="action-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:moussinoumama52@gmail.com" class="action-btn" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+
+            <p style="font-size: 0.8rem;">
+                &copy; 2026 محسن ماما. صُمم وفق أرقى المعايير الهندسية.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Case Study Modal -->
+    <div id="case-study-modal" class="modal-backdrop">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <h3 id="modal-project-title" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 0.3rem;"></h3>
+                    <p id="modal-project-subtitle" style="font-size: 0.95rem; color: var(--text-secondary);"></p>
+                </div>
+                <button onclick="closeCaseStudy()" class="modal-close-btn" title="إغلاق">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div id="modal-project-body" class="modal-body"></div>
+        </div>
+    </div>
+
+    <script src="scripts.js"></script>
 </body>
 </html>
