@@ -44,9 +44,38 @@
                 <a href="#contact" class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;">
                     <i class="fas fa-paper-plane"></i> Contact
                 </a>
+
+                <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-backdrop" class="mobile-backdrop"></div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile Navigation">
+        <div class="mobile-nav-top">
+            <div class="mobile-nav-brand">
+                <span class="brand-badge">MSN</span>
+                <span>Moussinou MAMA</span>
+            </div>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="#projets" class="mobile-nav-link"><i class="fas fa-code-branch"></i> Projects</a>
+            <a href="#parcours" class="mobile-nav-link"><i class="fas fa-user-graduate"></i> Experience & Education</a>
+            <a href="#competences" class="mobile-nav-link"><i class="fas fa-tools"></i> Skills</a>
+            <a href="#contact" class="mobile-nav-link"><i class="fas fa-paper-plane"></i> Contact</a>
+        </div>
+        <div class="mobile-nav-footer">
+            <a href="https://wa.me/22995231680" target="_blank" class="btn btn-secondary" style="justify-content: center;">
+                <i class="fab fa-whatsapp" style="color: var(--success);"></i> WhatsApp
+            </a>
+            <a href="#contact" class="btn btn-primary" style="justify-content: center;">
+                <i class="fas fa-paper-plane"></i> Contact Me
+            </a>
+        </div>
+    </nav>
 
     <!-- ================= Hero Section ================= -->
     <section id="hero" class="hero">
@@ -774,22 +803,22 @@
                     </div>
                 </div>
 
-                <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.75rem;">
+                <div class="contact-form-card">
                     <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem;"><i class="fas fa-paper-plane" style="color: var(--primary);"></i> Send a Direct Message</h3>
                     <form onsubmit="event.preventDefault(); alert('Thank you! I will reply shortly.'); this.reset();">
-                        <div style="margin-bottom: 1rem;">
-                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">Your Name</label>
-                            <input type="text" required style="width: 100%; background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.65rem 0.85rem; color: var(--text); font-family: inherit;">
+                        <div class="contact-form-group">
+                            <label class="contact-form-label">Your Name</label>
+                            <input type="text" required class="contact-form-input" placeholder="e.g. John Doe">
                         </div>
-                        <div style="margin-bottom: 1rem;">
-                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">Your Email</label>
-                            <input type="email" required style="width: 100%; background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.65rem 0.85rem; color: var(--text); font-family: inherit;">
+                        <div class="contact-form-group">
+                            <label class="contact-form-label">Your Email</label>
+                            <input type="email" required class="contact-form-input" placeholder="e.g. john@example.com">
                         </div>
-                        <div style="margin-bottom: 1.25rem;">
-                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">Your Message</label>
-                            <textarea rows="4" required style="width: 100%; background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.65rem 0.85rem; color: var(--text); font-family: inherit;"></textarea>
+                        <div class="contact-form-group" style="margin-bottom: 1.25rem;">
+                            <label class="contact-form-label">Your Message</label>
+                            <textarea rows="4" required class="contact-form-textarea" placeholder="Tell me about your project or opportunity..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
                     </form>

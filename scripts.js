@@ -54,7 +54,71 @@ function copyToClipboard(text, btnElement) {
     });
 }
 
+// Gestion du Menu Mobile
+function initMobileMenu() {
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const mobileNav = document.getElementById("mobile-nav");
+    const backdrop = document.getElementById("mobile-backdrop");
+
+    if (!menuBtn || !mobileNav) return;
+
+    function openMenu() {
+        mobileNav.classList.add("active");
+        if (backdrop) backdrop.classList.add("active");
+        menuBtn.setAttribute("aria-expanded", "true");
+        menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeMenu() {
+        mobileNav.classList.remove("active");
+        if (backdrop) backdrop.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
+        menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        document.body.style.overflow = "";
+    }
+
+    function toggleMenu() {
+        const isOpen = mobileNav.classList.contains("active");
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    }
+
+    menuBtn.addEventListener("click", toggleMenu);
+
+    if (backdrop) {
+        backdrop.addEventListener("click", closeMenu);
+    }
+
+    // Fermer quand on clique sur un lien de navigation
+    const navLinks = mobileNav.querySelectorAll(".mobile-nav-link, .btn");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            closeMenu();
+        });
+    });
+
+    // Fermer avec la touche Échap
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mobileNav.classList.contains("active")) {
+            closeMenu();
+        }
+    });
+
+    // Fermer si la fenêtre est redimensionnée au-delà du breakpoint mobile
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 768 && mobileNav.classList.contains("active")) {
+            closeMenu();
+        }
+    });
+}
+
 // Initialisation au chargement
 document.addEventListener("DOMContentLoaded", () => {
     initThemeToggle();
+    initMobileMenu();
 });
+

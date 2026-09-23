@@ -44,9 +44,38 @@
                 <a href="#contact" class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem;">
                     <i class="fas fa-paper-plane"></i> تواصل معي
                 </a>
+
+                <button id="mobile-menu-btn" class="mobile-menu-btn" aria-label="فتح القائمة" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- قائمة التنقل للهاتف المحمول (Mobile Drawer) -->
+    <div id="mobile-backdrop" class="mobile-backdrop"></div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="تنقل الهاتف">
+        <div class="mobile-nav-top">
+            <div class="mobile-nav-brand">
+                <span class="brand-badge">MSN</span>
+                <span>محسن ماما</span>
+            </div>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="#projets" class="mobile-nav-link"><i class="fas fa-code-branch"></i> المشاريع المنفذة</a>
+            <a href="#parcours" class="mobile-nav-link"><i class="fas fa-user-graduate"></i> المسار والتكوين</a>
+            <a href="#competences" class="mobile-nav-link"><i class="fas fa-tools"></i> المهارات التقنية</a>
+            <a href="#contact" class="mobile-nav-link"><i class="fas fa-paper-plane"></i> التواصل</a>
+        </div>
+        <div class="mobile-nav-footer">
+            <a href="https://wa.me/22995231680" target="_blank" class="btn btn-secondary" style="justify-content: center;">
+                <i class="fab fa-whatsapp" style="color: var(--success);"></i> واتساب مباشر
+            </a>
+            <a href="#contact" class="btn btn-primary" style="justify-content: center;">
+                <i class="fas fa-paper-plane"></i> تواصل معي
+            </a>
+        </div>
+    </nav>
 
     <!-- ================= القسم الرئيسي ================= -->
     <section id="hero" class="hero">
@@ -774,22 +803,22 @@
                     </div>
                 </div>
 
-                <div style="background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.75rem;">
+                <div class="contact-form-card">
                     <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem;"><i class="fas fa-paper-plane" style="color: var(--primary);"></i> إرسال رسالة مباشرة</h3>
                     <form onsubmit="event.preventDefault(); alert('شكراً لرسالتك! سأرد عليك في أقرب وقت.'); this.reset();">
-                        <div style="margin-bottom: 1rem;">
-                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">الاسم الكريم</label>
-                            <input type="text" required style="width: 100%; background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.65rem 0.85rem; color: var(--text); font-family: inherit;">
+                        <div class="contact-form-group">
+                            <label class="contact-form-label">الاسم الكريم</label>
+                            <input type="text" required class="contact-form-input" placeholder="مثال: محمد علي">
                         </div>
-                        <div style="margin-bottom: 1rem;">
-                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">البريد الإلكتروني</label>
-                            <input type="email" required style="width: 100%; background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.65rem 0.85rem; color: var(--text); font-family: inherit;">
+                        <div class="contact-form-group">
+                            <label class="contact-form-label">البريد الإلكتروني</label>
+                            <input type="email" required class="contact-form-input" placeholder="مثال: name@example.com">
                         </div>
-                        <div style="margin-bottom: 1.25rem;">
-                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem;">الرسالة</label>
-                            <textarea rows="4" required style="width: 100%; background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.65rem 0.85rem; color: var(--text); font-family: inherit;"></textarea>
+                        <div class="contact-form-group" style="margin-bottom: 1.25rem;">
+                            <label class="contact-form-label">الرسالة</label>
+                            <textarea rows="4" required class="contact-form-textarea" placeholder="أخبرني عن مشروعك أو الفرصة المتاحة..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
                             <i class="fas fa-paper-plane"></i> إرسال الرسالة
                         </button>
                     </form>
