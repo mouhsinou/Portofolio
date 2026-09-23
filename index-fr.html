@@ -805,22 +805,29 @@
 
                 <div class="contact-form-card">
                     <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1rem;"><i class="fas fa-paper-plane" style="color: var(--primary);"></i> M'écrire un message</h3>
-                    <form onsubmit="event.preventDefault(); alert('Merci pour votre message ! Je vous répondrai rapidement.'); this.reset();">
+                    <form id="contact-form" action="https://formsubmit.co/moussinoumama52@gmail.com" method="POST">
+                        <!-- Configuration FormSubmit -->
+                        <input type="hidden" name="_subject" value="Nouveau message depuis le Portfolio — Moussinou MAMA">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="text" name="_honey" style="display:none">
+
                         <div class="contact-form-group">
                             <label class="contact-form-label">Votre Nom</label>
-                            <input type="text" required class="contact-form-input" placeholder="ex. Moussa Diallo">
+                            <input type="text" name="name" required class="contact-form-input" placeholder="ex. Moussa Diallo">
                         </div>
                         <div class="contact-form-group">
                             <label class="contact-form-label">Votre Email</label>
-                            <input type="email" required class="contact-form-input" placeholder="ex. contact@exemple.com">
+                            <input type="email" name="email" required class="contact-form-input" placeholder="ex. contact@exemple.com">
                         </div>
                         <div class="contact-form-group" style="margin-bottom: 1.25rem;">
                             <label class="contact-form-label">Votre Message</label>
-                            <textarea rows="4" required class="contact-form-textarea" placeholder="Décrivez votre projet ou votre opportunité..."></textarea>
+                            <textarea rows="4" name="message" required class="contact-form-textarea" placeholder="Décrivez votre projet ou votre opportunité..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                        <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; justify-content: center;">
                             <i class="fas fa-paper-plane"></i> Envoyer le Message
                         </button>
+                        <div id="form-status" class="form-status"></div>
                     </form>
                 </div>
             </div>

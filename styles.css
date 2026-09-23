@@ -932,6 +932,46 @@ button {
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
 }
 
+/* Messages de statut du formulaire */
+.form-status {
+    display: none;
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    font-weight: 600;
+    align-items: center;
+    gap: 0.65rem;
+    line-height: 1.4;
+    transition: var(--transition);
+}
+
+.form-status.success {
+    display: flex;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    color: var(--success);
+}
+
+.form-status.error {
+    display: flex;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid rgba(239, 68, 68, 0.35);
+    color: #ef4444;
+}
+
+.form-status.info {
+    display: flex;
+    background: rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+    color: var(--primary-light);
+}
+
+.form-status i {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
 /* Footer */
 .footer {
     padding: 2.5rem 0;
